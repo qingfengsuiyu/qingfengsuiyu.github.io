@@ -56,7 +56,9 @@
 
 
 
-  <title> Hello World · Daybreak </title>
+  <meta name="keywords" content="网络操作系统, Nlvi">
+
+  <title> DNS服务搭建 · Daybreak </title>
 </head>
 <body>
   <div class="progress">
@@ -229,26 +231,24 @@
           
           
             
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/网络操作系统/">网络操作系统</a>
+              
+              </aside>
+            
           
         </div>
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          Hello World
+          DNS服务搭建
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount -t iso9660 /dev/cdrom /mnt/cdrom</span><br><span class="line"></span><br><span class="line">rpm -ivh /mnt/cdrom/Packages/<span class="built_in">bind</span>-9.8.2-0.10.rcl.e16.i686.rpm(可按tap补全)</span><br><span class="line"><span class="comment"># 若上面语句不成功，执行下面</span></span><br><span class="line">rpm -ivh --nodeps <span class="built_in">bind</span>-9.8.2-0.30.rc1.el6.x86_64.rpm </span><br><span class="line"></span><br><span class="line"><span class="comment">#配置1：(空格分隔，一个空格就行)</span></span><br><span class="line">vim /etc/named.conf</span><br><span class="line"></span><br><span class="line">zone <span class="string">"***.com"</span>  IN&#123;</span><br><span class="line">	<span class="built_in">type</span> master;</span><br><span class="line">	file <span class="string">"***.com.zone"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone <span class="string">"137.168.192.in-addr.arpa"</span>  IN&#123;</span><br><span class="line">	<span class="built_in">type</span> master;</span><br><span class="line">	file <span class="string">"192.168.137.rev"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"><span class="comment">#配置2：(除42	;serial中间是tab，其他均为一个空格)</span></span><br><span class="line">vim /var/named/***.com.zone</span><br><span class="line"><span class="variable">$TTL</span>  86400</span><br><span class="line">@  IN  SOA  ns1.***.com.  hostmaster.***.com.(</span><br><span class="line">42      ;serial</span><br><span class="line">3H      ;refresh</span><br><span class="line">15M     ;retry</span><br><span class="line">1W      ;expiry</span><br><span class="line">1D)     ;minimum</span><br><span class="line"></span><br><span class="line">@  IN  NS  ns1.***.com.</span><br><span class="line">@  IN  NS  ns2.***.com.</span><br><span class="line"></span><br><span class="line">ns1  IN  A  192.168.137.2</span><br><span class="line">ns2  IN  A  192.168.137.10</span><br><span class="line">host1 IN A  192.168.137.3</span><br><span class="line"></span><br><span class="line">gateway  IN  CNAME  host1.***.com.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置3：</span></span><br><span class="line">vim /var/named/192.168.137.rev</span><br><span class="line"></span><br><span class="line"><span class="variable">$TTL</span>  86400</span><br><span class="line">@  IN  SOA  ns1.lwj.com.  hostmaster.lwj.com.(</span><br><span class="line">42      ;serial</span><br><span class="line">3H      ;refresh</span><br><span class="line">15M     ;retry</span><br><span class="line">1W      ;expiry</span><br><span class="line">1D)     ;minimum</span><br><span class="line"></span><br><span class="line">@   IN   NS  ns1.***.com.</span><br><span class="line">@   IN   NS  ns2.***.com.</span><br><span class="line"></span><br><span class="line">2   IN   PTR  ns1.***.com.</span><br><span class="line">10  IN   PTR  ns2.***.com.</span><br><span class="line">3   IN   PTR  host1.***.com.</span><br><span class="line">3   IN   PTR  gateway.***.com.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查语法是否有误;</span></span><br><span class="line">named-checkconf</span><br><span class="line">named-checkzone lwj.com /var/named/***.com.zone</span><br><span class="line">named-checkzone 137.168.192.in-addr.arpa /var/named/192.168.137.rev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启：</span></span><br><span class="line">rndc-confgen -r /dev/urandom -a</span><br><span class="line">service named start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有发现nslookup</span></span><br><span class="line">rpm -ivh <span class="built_in">bind</span>-utils-9.8.2-0.10.rc1.el6.i686.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正向解析</span></span><br><span class="line">nslookup ns1.***.com.</span><br><span class="line">nslookup ns2.***.com.</span><br><span class="line">nslookup host1.***.com.</span><br><span class="line">nslookup gateway.***.com.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 逆向解析</span></span><br><span class="line">nslookup 192.168.137.2</span><br><span class="line">nslookup 192.168.137.3</span><br><span class="line">nslookup 192.168.137.10</span><br></pre></td></tr></table></figure>
 
       
     
@@ -265,7 +265,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="http://qingfengsuiyu.github.io/2018/12/22/hello-world/">http://qingfengsuiyu.github.io/2018/12/22/hello-world/</a>
+      <a href="http://qingfengsuiyu.github.io/2018/12/22/DNS服务搭建/">http://qingfengsuiyu.github.io/2018/12/22/DNS服务搭建/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -283,12 +283,12 @@
     
   <nav class="article-page">
     
-      <a href="/2018/12/22/test-my-site/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>test_my_site
+    
+      <a href="/2018/12/22/WEB服务搭建/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          WEB服务搭建<i class="iconfont icon-right"></i>  
         </span>
       </a>
-    
     
   </nav>
 
@@ -312,8 +312,8 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">Hello World</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <li class="title-link"><a href="javascript:;" class="toTop">DNS服务搭建</a></li>
+      
     </div>
   </aside>
 
