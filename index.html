@@ -70,7 +70,7 @@
     <div class="tagcloud-mask"></div>  
 <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-inner">
-    <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
+    <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
   </div>
 </div>
   
@@ -184,7 +184,7 @@
             </div>
             <div class="mobile-nav-tagcloud">
               <div class="mobile-tagcloud-inner">
-                <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
+                <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
               </div>
             </div>
           </div>
@@ -239,6 +239,344 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
+          <a href="/2018/12/22/类继承实现信号量/">类继承实现信号量</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> number_1</span><br><span class="line"></span><br><span class="line">number_1 = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">synchronization</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="string">"""docstring for synchronization"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">(self,number,mutex_1)</span>:</span></span><br><span class="line">		<span class="keyword">if</span> mutex_1 == <span class="number">1</span>:</span><br><span class="line">			number += <span class="number">20</span></span><br><span class="line">			<span class="keyword">return</span>(number)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">(self,number,mutex_2)</span>:</span></span><br><span class="line">		<span class="keyword">if</span> mutex_2 == <span class="number">1</span>:</span><br><span class="line">			number += <span class="number">30</span></span><br><span class="line">			<span class="keyword">return</span> number</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span><span class="params">(synchronization)</span>:</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">my_son</span><span class="params">(self)</span>:</span></span><br><span class="line">		print(<span class="string">"say hi"</span>)</span><br><span class="line"></span><br><span class="line">mutex_1 = <span class="number">1</span></span><br><span class="line">mutex_2 = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">son = son()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> mutex_1 == <span class="number">1</span>:</span><br><span class="line">	print(son.func1(number_1,mutex_1))</span><br><span class="line">	<span class="comment"># mutex_1 = 0</span></span><br><span class="line">	mutex_2 = <span class="number">1</span></span><br><span class="line">	print(son.func2(number_1,mutex_2))</span><br><span class="line">	mutex_2 = <span class="number">0</span></span><br><span class="line">	mutex_1 = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/锁机制实现/">锁机制实现</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#conding:utf8</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run1</span><span class="params">(cond,name)</span>:</span></span><br><span class="line">	cond.acquire() <span class="comment"># 申请</span></span><br><span class="line">	print(name+<span class="string">" I am run1,1"</span>)</span><br><span class="line">	cond.notify() <span class="comment"># 唤起run2_1</span></span><br><span class="line">	cond.wait() <span class="comment"># 阻塞本线程</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	print(name+<span class="string">"I am run1,2"</span>)</span><br><span class="line">	cond.notify() <span class="comment">#唤起run2_2</span></span><br><span class="line">	cond.wait()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run2</span><span class="params">(coda,name)</span>:</span></span><br><span class="line">	cond.acquire() <span class="comment"># 申请</span></span><br><span class="line">	print(name+<span class="string">" I am run2,1"</span>)</span><br><span class="line">	cond.notify() <span class="comment"># 唤起run1_2</span></span><br><span class="line">	cond.wait()	<span class="comment"># 阻塞本线程</span></span><br><span class="line"></span><br><span class="line">	print(name+<span class="string">"I am run2,2"</span>)</span><br><span class="line">	cond.notify()</span><br><span class="line">	cond.release()</span><br><span class="line"></span><br><span class="line">cond = threading.Condition()</span><br><span class="line">t1 = threading.Thread(target=run1,args=(cond,<span class="string">"xiaoyi"</span>,))</span><br><span class="line">t2 = threading.Thread(target=run2,args=(cond,<span class="string">"xiaohuang"</span>))</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line">t1.join()</span><br><span class="line">t2.join()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/udp套接字通信/">udp套接字通信</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#客户端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.184.247'</span></span><br><span class="line">port = <span class="number">1330</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">s.connect((host,port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    mes = bytes(input(<span class="string">"Client  input data:"</span>),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="keyword">if</span> mes == <span class="string">'q'</span>:</span><br><span class="line">        print(<span class="string">'it is break'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    s.sendall(mes)</span><br><span class="line">    <span class="comment"># data,address = s.recvfrom(1024)</span></span><br><span class="line">    <span class="comment"># print("This is data of Service:&gt;&gt;&gt;&gt;&gt;&gt;",data)</span></span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.239.247'</span></span><br><span class="line">port = <span class="number">1330</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_DGRAM)</span><br><span class="line">s.bind((host,port))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ai</span><span class="params">(info)</span>:</span></span><br><span class="line">	key = <span class="string">'69fab0876655e88a4cda6d5548026521'</span></span><br><span class="line">	api = <span class="string">'http://www.tuling123.com/openapi/api?key='</span> + key + <span class="string">'&amp;info='</span> + info</span><br><span class="line">	res = requests.get(api)</span><br><span class="line">	res.encoding = <span class="string">'utf-8'</span></span><br><span class="line">	jd = json.loads(res.text)</span><br><span class="line">	<span class="keyword">return</span> jd[<span class="string">'text'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    data,address = s.recvfrom(<span class="number">1024</span>)</span><br><span class="line">    data = ai(str(data,encoding=<span class="string">"utf-8"</span>))</span><br><span class="line">    print(data,address)</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="string">'1'</span>):</span><br><span class="line">        mes = <span class="string">'welcome!'</span></span><br><span class="line">        s.sendto(mes,address)</span><br><span class="line">    <span class="comment"># else:</span></span><br><span class="line">    <span class="comment">#     mes = bytes(input("Return a word for Client requestd: &gt;&gt;"),encoding='utf-8')</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#     s.sendto(mes,address)</span></span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/tcp套接字通信/">tcp套接字通信</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#客户端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.83.175'</span></span><br><span class="line">port = <span class="number">1329</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((host,port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    mes = bytes(input(<span class="string">"Client  input data:"</span>),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="keyword">if</span> mes == <span class="string">'q'</span>:</span><br><span class="line">        print(<span class="string">'it is break'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    s.send(mes)</span><br><span class="line">    data,address = s.recv(<span class="number">1024</span>)</span><br><span class="line">    print(<span class="string">"This is data of Service:&gt;&gt;&gt;&gt;&gt;&gt;"</span>,data)</span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务器端</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.83.175'</span></span><br><span class="line">port = <span class="number">1329</span></span><br><span class="line"></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.bind((host,port))</span><br><span class="line">s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">ss, addr = s.accept() </span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    data = ss.recv(<span class="number">1024</span>)</span><br><span class="line">    print(data)</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="string">'1'</span>):</span><br><span class="line">        mes = <span class="string">'welcome!'</span></span><br><span class="line">        ss.send(mes)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        mes = bytes(<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">        ss.send(mes)</span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/多线程修改全局变量/">多线程修改全局变量</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类的方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line">		</span><br><span class="line">lock = threading.Lock() <span class="comment"># lock</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define a number for calculate</span></span><br><span class="line">balance = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># add lock and release lock function</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestClass</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,balance)</span>:</span></span><br><span class="line">		self.Balance = balance</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">change_it_with_lock</span><span class="params">(n)</span>:</span></span><br><span class="line">		<span class="keyword">global</span> balance</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> lock.acquire(): <span class="comment"># add lock</span></span><br><span class="line">			<span class="keyword">try</span>:</span><br><span class="line">				<span class="comment"># calculate 10000 times</span></span><br><span class="line">				<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">					balance = balance + n</span><br><span class="line">					balance = balance - n</span><br><span class="line">			<span class="keyword">finally</span>:</span><br><span class="line">				lock.release() <span class="comment"># relaese lock</span></span><br><span class="line">		<span class="comment"># print(balance)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test1 = TestClass(5)</span></span><br><span class="line">test2 = TestClass.change_it_with_lock(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># print(test1.Balance)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># creat multithreading</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># creating a list for circle to add number</span></span><br><span class="line">threads = []</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">	threads.append(threading.Thread(target=test2,args=(<span class="number">10</span>,)))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"当前线程个数：%d"</span>%len(threads))</span><br><span class="line"></span><br><span class="line"><span class="comment"># run multithreading</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(len(threads)):</span><br><span class="line">	threads[x].start() <span class="comment"># threading start</span></span><br><span class="line">	threads[x].join() <span class="comment"># threading join</span></span><br><span class="line">	print(<span class="string">"当前是%s线程,balance"</span>%x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通方式</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line">m = <span class="number">10</span></span><br><span class="line">lock = threading.Lock() <span class="comment"># lock</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_it_with_lock</span><span class="params">(n)</span>:</span></span><br><span class="line">	<span class="keyword">global</span> m</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> lock.acquire(): <span class="comment"># add lock</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			<span class="comment"># calculate 10000 times</span></span><br><span class="line">			<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">				m = m + n</span><br><span class="line">				m = m - n</span><br><span class="line">		<span class="keyword">finally</span>:</span><br><span class="line">			lock.release() <span class="comment"># relaese lock</span></span><br><span class="line">		print(m)</span><br><span class="line"></span><br><span class="line">l1 = threading.Thread(target=change_it_with_lock,args=(<span class="number">10</span>,))</span><br><span class="line">l2 = threading.Thread(target=change_it_with_lock,args=(<span class="number">10</span>,))</span><br><span class="line"></span><br><span class="line">l1.start()</span><br><span class="line">l1.join()</span><br><span class="line">l2.start()</span><br><span class="line">l2.join()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/python信号量机制/">python信号量机制</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">localtime = time.asctime( time.localtime(time.time()) )</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(single)</span>:</span></span><br><span class="line">	print(<span class="string">"Recently time is %s"</span>%localtime)</span><br><span class="line">	single.wait() <span class="comment"># 设置信号量为False</span></span><br><span class="line"></span><br><span class="line">single = threading.Event() <span class="comment"># 定义事件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">	<span class="comment"># 创建三个线程</span></span><br><span class="line">	t = threading.Thread(target=run,args=(single,))</span><br><span class="line">	t.start()</span><br><span class="line">	time.sleep(<span class="number">1</span>)</span><br><span class="line">	single.set() <span class="comment"># 设置信号量为True</span></span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/Python异步通信/">Python异步通信</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket,select</span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP</span></span><br><span class="line">server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># S.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1) 这里value</span></span><br><span class="line"><span class="comment"># 设置为1，表示将SO_REUSEADDR标记为TRUE，操作系统会在服务器socket被关闭或</span></span><br><span class="line"><span class="comment"># 服务器进程终止后马上释放该服务器的端口，否则操作系统会保留几分钟该端口。</span></span><br><span class="line">server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">server.bind((<span class="string">"10.200.184.247"</span>,<span class="number">1888</span>))</span><br><span class="line"><span class="comment">#A连接后还可以在连接4个人，在多的人就无法连接。一共5个人可以排队</span></span><br><span class="line">server.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">select 有三个表(自定义)，input接受消息，output 回消息，error 错误信息</span></span><br><span class="line"><span class="string">select,会循环遍历每一个列表。不停的遍历默认1024文件描述符。不管有没有对象真的占用描述符都会一直循环，</span></span><br><span class="line"><span class="string">并且一个对象都没有的时候将进入阻塞状态</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#这里必须这样写把server放进去，新的连接信息其实并不会加入这个列表中去。这个列表始终只有server</span></span><br><span class="line">inputs = [server]</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(inputs)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ------- 以下写到空列表中</span></span><br><span class="line"><span class="comment"># rs,ws,es = select.select(inputs,[],[],1)</span></span><br><span class="line"><span class="comment">#这个链列表是存储要发消息的连接对象</span></span><br><span class="line"><span class="comment"># outputs=[]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#这个队列是存放每个对象发过来的消息</span></span><br><span class="line"><span class="comment"># message_queues=&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line"><span class="comment"># 在python中，select函数是一个对底层操作系统的直接访问的接口。它用来监控sockets、</span></span><br><span class="line"><span class="comment"># files和pipes，等待IO完成（Waiting for I/O completion）。当有可读、可写或</span></span><br><span class="line"><span class="comment"># 是异常事件产生时，select可以很容易的监控到。 </span></span><br><span class="line"><span class="comment"># select.select（rlist, wlist, xlist[, timeout]） 传递三个参数，一个为输入</span></span><br><span class="line"><span class="comment"># 而观察的文件对象列表，一个为输出而观察的文件对象列表和一个观察错误异常的文件列表。</span></span><br><span class="line"><span class="comment"># 第四个是一个可选参数，表示超时秒数。其返回3个tuple，每个tuple都是一个准备好的对</span></span><br><span class="line"><span class="comment"># 象列表，它和前边的参数是一样的顺序。</span></span><br><span class="line"></span><br><span class="line">	rs,ws,es = select.select(inputs,[],[],<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> r <span class="keyword">in</span> rs:</span><br><span class="line">		<span class="keyword">if</span> r <span class="keyword">is</span> server:</span><br><span class="line">			clientsock,clientaddr=r.accept()</span><br><span class="line">			<span class="comment"># print(clientsock)</span></span><br><span class="line">			<span class="comment"># 并把连接添加到Input列表里面</span></span><br><span class="line">			inputs.append(clientsock)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="comment"># 连接接收数据</span></span><br><span class="line">			data = r.recv(<span class="number">1024</span>)</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">			<span class="comment"># 没有数据移除其中一个连接</span></span><br><span class="line">				inputs.remove(r)</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				print(data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">host = <span class="string">'10.200.184.247'</span></span><br><span class="line">port = <span class="number">1888</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((host,port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    mes = bytes(input(<span class="string">"Client  input data:"</span>),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="keyword">if</span> mes == <span class="string">'q'</span>:</span><br><span class="line">        print(<span class="string">'it is break'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    s.send(mes)</span><br><span class="line">    <span class="comment"># data,address = s.recvfrom(1024)</span></span><br><span class="line">    <span class="comment"># print("This is data of Service:&gt;&gt;&gt;&gt;&gt;&gt;",data)</span></span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/TCP调用图灵机器人/">TCP调用图灵机器人</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#环境 Python3.7</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.184.247'</span></span><br><span class="line">port = <span class="number">1330</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((host,port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	mes = bytes(input(<span class="string">"Client  input data:"</span>),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">	<span class="keyword">if</span> mes == <span class="number">0</span>:</span><br><span class="line">		print(<span class="string">'it is break'</span>)</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	s.send(mes)</span><br><span class="line">	data = s.recv(<span class="number">1024</span>)</span><br><span class="line">	data = data.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">	print(<span class="string">"This is data of Service:&gt;&gt;&gt;&gt;&gt;&gt;"</span>,data)</span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.239.197'</span></span><br><span class="line">port = <span class="number">1330</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.bind((host,port))</span><br><span class="line">s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ai</span><span class="params">(info)</span>:</span></span><br><span class="line">	key = <span class="string">'69fab0876655e88a4cda6d5548026521'</span></span><br><span class="line">	api = <span class="string">'http://www.tuling123.com/openapi/api?key='</span> + key + <span class="string">'&amp;info='</span> + info</span><br><span class="line">	res = requests.get(api)</span><br><span class="line">	res.encoding = <span class="string">'utf-8'</span></span><br><span class="line">	jd = json.loads(res.text)</span><br><span class="line">	<span class="keyword">return</span> jd[<span class="string">'text'</span>]</span><br><span class="line">ss, addr = s.accept() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	<span class="comment"># ss, addr = s.accept() </span></span><br><span class="line">	data = str(ss.recv(<span class="number">1024</span>))</span><br><span class="line">	data = bytes((ai(data)),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">	ss.send(data)</span><br><span class="line">	<span class="keyword">if</span> (data == <span class="string">'1'</span>):</span><br><span class="line">		mes = <span class="string">'welcome!'</span></span><br><span class="line">		ss.send(mes)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/threading-多线程/">threading 多线程</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#conding:utf8</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run1</span><span class="params">(cond,name)</span>:</span></span><br><span class="line">	cond.acquire() <span class="comment"># 申请</span></span><br><span class="line">	print(name+<span class="string">" I am run1,1"</span>)</span><br><span class="line">	cond.notify() <span class="comment"># 唤起run2_1</span></span><br><span class="line">	cond.wait() <span class="comment"># 阻塞本线程</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	print(name+<span class="string">"I am run1,2"</span>)</span><br><span class="line">	cond.notify() <span class="comment">#唤起run2_2</span></span><br><span class="line">	cond.wait()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run2</span><span class="params">(coda,name)</span>:</span></span><br><span class="line">	cond.acquire() <span class="comment"># 申请</span></span><br><span class="line">	print(name+<span class="string">" I am run2,1"</span>)</span><br><span class="line">	cond.notify() <span class="comment"># 唤起run1_2</span></span><br><span class="line">	cond.wait()	<span class="comment"># 阻塞本线程</span></span><br><span class="line"></span><br><span class="line">	print(name+<span class="string">"I am run2,2"</span>)</span><br><span class="line">	cond.notify()</span><br><span class="line">	cond.release()</span><br><span class="line"></span><br><span class="line">cond = threading.Condition()</span><br><span class="line">t1 = threading.Thread(target=run1,args=(cond,<span class="string">"xiaoyi"</span>,))</span><br><span class="line">t2 = threading.Thread(target=run2,args=(cond,<span class="string">"xiaohuang"</span>))</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line">t1.join()</span><br><span class="line">t2.join()</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
           <a href="/2018/12/22/DNS服务搭建/">DNS服务搭建</a>
         
       </h1>
@@ -260,204 +598,10 @@
   
 
   
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2018/12/22/WEB服务搭建/">WEB服务搭建</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom/</span><br><span class="line"><span class="comment">#安装顺序</span></span><br><span class="line">rpm -ivh apr-1.3.9-3.e16_1.2.i686.rpm</span><br><span class="line">rpm -ivh apr-util-1.3.9-3.e16....</span><br><span class="line">rpm -ivh apr-util-ldap-1.3.9....</span><br><span class="line">rpm -ivh httpd-tools-2.2.15.e16...</span><br><span class="line">rpm -ivh httpd-2.2.15-15...</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后编辑配置文件，修改一行代码</span></span><br><span class="line">vi /etc/httpd/conf/httpd.conf</span><br><span class="line"><span class="comment">#276 行，修改   /276</span></span><br><span class="line">ServerName 192.168.132.2:80</span><br><span class="line">service httpd start</span><br><span class="line"><span class="comment">#编辑主页文件</span></span><br><span class="line">vi /var/www/html/index.html</span><br><span class="line"><span class="comment">#关闭防火墙</span></span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#浏览器访问192.168.132.2/index.html</span></span><br></pre></td></tr></table></figure>
-
-        
-      
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2018/12/22/ftp服务搭建/">ftp服务搭建</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并挂载</span></span><br><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom/</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /mnt/cdrom/Packages/</span><br><span class="line">rpm -ivh vsftpd-2.2.2-11.e16.e16.i686.rpm</span><br><span class="line"><span class="comment">#配置文件</span></span><br><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"><span class="comment">#两个属性取消注释</span></span><br><span class="line">anon_upload_enables=YES</span><br><span class="line">anon_mkdir_write_enable=YES</span><br><span class="line"><span class="comment"># /anon_upload_enables 搜索</span></span><br><span class="line"><span class="comment">#服务启动和关闭防火墙</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#进入pub目录创建一个文件</span></span><br><span class="line"><span class="built_in">cd</span> /var/ftp/pub/  <span class="comment">#目录，此目录与windows共享</span></span><br><span class="line"><span class="comment">#顺便修改文件夹权限</span></span><br><span class="line">chmod 777 /var/ftp/pub/</span><br><span class="line">Vim /etc/selinux/config  </span><br><span class="line"><span class="comment">#修改</span></span><br><span class="line">selinux=disabled</span><br><span class="line"><span class="comment">#关闭防火墙 </span></span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Next step : 重启主机</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Windows ftp连接,并cd pub目录 get获取文件</span></span><br><span class="line"><span class="comment">#windows的共享目录在Users/Administeator</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#windows 下面 cmd命令行输入:</span></span><br><span class="line">ftp 192.168.132.2</span><br><span class="line"><span class="comment">#ftp 为默认账号，无密码</span></span><br><span class="line"><span class="built_in">cd</span> pub <span class="comment">#进入共享目录</span></span><br><span class="line">get xxx.txt <span class="comment">#从centerOs_Pub目录下 获取文件 在Users/Administeator下查看</span></span><br><span class="line">put xxx.txt <span class="comment">#从Users/Administeator推文件到center_Os 在pub目录下查看</span></span><br></pre></td></tr></table></figure>
-
-        
-      
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2018/12/22/DHCP服务器搭建/">DHCP服务器搭建</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 <span class="comment">#显示网卡信息</span></span><br><span class="line"></span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0 <span class="comment">#修改配置文件</span></span><br><span class="line"></span><br><span class="line">内容:</span><br><span class="line">DEVICE=<span class="string">"eth0"</span></span><br><span class="line">BOOTPROTO=<span class="string">"static"</span></span><br><span class="line">HWADDR=<span class="string">"默认"</span></span><br><span class="line">ONBOOT=<span class="string">"yes"</span></span><br><span class="line">TYPE=<span class="string">"Ethernet"</span></span><br><span class="line">UUID=<span class="string">"默认"</span></span><br><span class="line">IPADDR=192.168.132.2</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.132.2</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">service network restart <span class="comment">#服务重启</span></span><br><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom</span><br><span class="line"><span class="comment"># then install dhepd serivice</span></span><br><span class="line"><span class="built_in">cd</span> /mnt/cdrom/Packages/</span><br><span class="line">rpm -ivh install dhcp-4.1.1-31.P1 <span class="comment">#TABLE补全</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑DHCPD的配置文件</span></span><br><span class="line">vi /etc/dhcp/dhcpd.conf</span><br><span class="line"><span class="comment">#add below content</span></span><br><span class="line">ddns-update-style interim;</span><br><span class="line">ignore client-updates;</span><br><span class="line">default-lease-time 21600;</span><br><span class="line">max-lease-time 43200;</span><br><span class="line">subnet 192.168.132.0 netmast 255.255.255.0&#123;</span><br><span class="line">range 192.168.132.100 192.168.132.110;</span><br><span class="line">option subnet-mask 255.255.255.0;</span><br><span class="line">option domain-name <span class="string">"xiaoyi.com"</span>;</span><br><span class="line">option routers 192.168.132.254;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">service dhcpd start</span><br><span class="line"><span class="comment"># 关闭主机，克隆主机，并且启动主机后，启动dhcpd服务，然后编辑克隆的主机，如下命令</span></span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth1 <span class="comment">#网卡1</span></span><br><span class="line"></span><br><span class="line">DEVICE=<span class="string">"eht1"</span></span><br><span class="line">BOOTPROTO=<span class="string">"dhcp"</span></span><br><span class="line">ONBOOT=<span class="string">"yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出后，执行 ifup eth1 启动网卡1，发现网卡地址已经分配，如果必要启动dhcpd服务</span></span><br><span class="line">service dhcpd start</span><br></pre></td></tr></table></figure>
-
-        
-      
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2018/12/22/test-my-site/">test_my_site</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          
-        
-      
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2018/12/22/hello-world/">Hello World</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
 </section>
   
   <nav class="pagination">
-      <span class="page-number current">1</span>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
   </nav>
 
 

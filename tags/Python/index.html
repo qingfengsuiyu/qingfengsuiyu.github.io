@@ -56,9 +56,11 @@
 
 
 
-  <meta name="keywords" content="网络操作系统, Nlvi">
-
-  <title> ftp服务搭建 · Daybreak </title>
+  <title>
+  
+    python · Daybreak
+  
+</title>
 </head>
 <body>
   <div class="progress">
@@ -219,113 +221,106 @@
         <div class="main-wrapper">
           
     
-  
-  <article class="
-  post
-   is_post 
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-22</span>
-          
-          
+    <div class="archive syuanpi fadeInUp" id="archive">
+        
+            <h2 class="archive-title"> 正在查看 </h2>
+            <span class="archive-name"> — python</span>
+        
+        <div class="archive-list">
+            <ul>
+        
             
-              <aside class="post-tags syuanpi fadeInUpShort back-3">
-              
-                <a href="/tags/网络操作系统/">网络操作系统</a>
-              
-              </aside>
             
-          
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/类继承实现信号量/">类继承实现信号量</a>
+                </span>
+            </li>
+
+        
+            
+            
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/锁机制实现/">锁机制实现</a>
+                </span>
+            </li>
+
+        
+            
+            
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/udp套接字通信/">udp套接字通信</a>
+                </span>
+            </li>
+
+        
+            
+            
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/tcp套接字通信/">tcp套接字通信</a>
+                </span>
+            </li>
+
+        
+            
+            
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/多线程修改全局变量/">多线程修改全局变量</a>
+                </span>
+            </li>
+
+        
+            
+            
+            <li class="archive-post">
+                <span class="archive-post-time">
+                
+                    2018-12-22
+                
+                </span>
+                <span class="archive-post-link">
+                    <a href="/2018/12/22/python信号量机制/">python信号量机制</a>
+                </span>
+            </li>
+
+        
+            </ul>
         </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          ftp服务搭建
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并挂载</span></span><br><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom/</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /mnt/cdrom/Packages/</span><br><span class="line">rpm -ivh vsftpd-2.2.2-11.e16.e16.i686.rpm</span><br><span class="line"><span class="comment">#配置文件</span></span><br><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"><span class="comment">#两个属性取消注释</span></span><br><span class="line">anon_upload_enables=YES</span><br><span class="line">anon_mkdir_write_enable=YES</span><br><span class="line"><span class="comment"># /anon_upload_enables 搜索</span></span><br><span class="line"><span class="comment">#服务启动和关闭防火墙</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#进入pub目录创建一个文件</span></span><br><span class="line"><span class="built_in">cd</span> /var/ftp/pub/  <span class="comment">#目录，此目录与windows共享</span></span><br><span class="line"><span class="comment">#顺便修改文件夹权限</span></span><br><span class="line">chmod 777 /var/ftp/pub/</span><br><span class="line">Vim /etc/selinux/config  </span><br><span class="line"><span class="comment">#修改</span></span><br><span class="line">selinux=disabled</span><br><span class="line"><span class="comment">#关闭防火墙 </span></span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Next step : 重启主机</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Windows ftp连接,并cd pub目录 get获取文件</span></span><br><span class="line"><span class="comment">#windows的共享目录在Users/Administeator</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#windows 下面 cmd命令行输入:</span></span><br><span class="line">ftp 192.168.132.2</span><br><span class="line"><span class="comment">#ftp 为默认账号，无密码</span></span><br><span class="line"><span class="built_in">cd</span> pub <span class="comment">#进入共享目录</span></span><br><span class="line">get xxx.txt <span class="comment">#从centerOs_Pub目录下 获取文件 在Users/Administeator下查看</span></span><br><span class="line">put xxx.txt <span class="comment">#从Users/Administeator推文件到center_Os 在pub目录下查看</span></span><br></pre></td></tr></table></figure>
-
-      
-    
     </div>
     
-      
-
-      
-  <hr class="copy-line">
-  <div class="post-copyright">
-    <div class="copy-author">
-      <span>作者 :</span>
-      <span>Xiaoyi Hao</span>
-    </div>
-    <div class="copy-url">
-      <span>地址 :</span>
-      <a href="http://qingfengsuiyu.github.io/2018/12/22/ftp服务搭建/">http://qingfengsuiyu.github.io/2018/12/22/ftp服务搭建/</a>
-    </div>
-    <div class="copy-origin">
-      <span>来源 :</span>
-      <a href="http://qingfengsuiyu.github.io">http://qingfengsuiyu.github.io</a>
-    </div>
-    <div class="copy-license">
-      
-      著作权归作者所有，转载请联系作者获得授权。
-    </div>
-  </div>
-
-    
-  </article>
-  
-    
-  <nav class="article-page">
-    
-      <a href="/2018/12/22/WEB服务搭建/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>WEB服务搭建
-        </span>
-      </a>
-    
-    
-      <a href="/2018/12/22/DHCP服务器搭建/" id="art-right" class="art-right">
-        <span class="prev-title"> 
-          DHCP服务器搭建<i class="iconfont icon-right"></i>  
-        </span>
-      </a>
-    
+  <nav class="pagination">
+      <span class="page-number current">1</span>
   </nav>
 
-    
-  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
-  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
-    
-    
-    
-
-    
-
-  </div>
-
-
-
-  
-  
-    
-  
-  <aside class="post-toc">
-    <span class="title" id="toc-switch"><span>文章导航</span></span>
-    <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">ftp服务搭建</a></li>
-      
-    </div>
-  </aside>
-
-
-
-  
 
 
         </div>

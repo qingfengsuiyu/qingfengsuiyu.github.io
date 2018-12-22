@@ -56,9 +56,9 @@
 
 
 
-  <meta name="keywords" content="网络操作系统, Nlvi">
+  <meta name="keywords" content="python, Nlvi">
 
-  <title> ftp服务搭建 · Daybreak </title>
+  <title> tcp套接字通信 · Daybreak </title>
 </head>
 <body>
   <div class="progress">
@@ -233,7 +233,7 @@
             
               <aside class="post-tags syuanpi fadeInUpShort back-3">
               
-                <a href="/tags/网络操作系统/">网络操作系统</a>
+                <a href="/tags/python/">python</a>
               
               </aside>
             
@@ -242,13 +242,14 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          ftp服务搭建
+          tcp套接字通信
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并挂载</span></span><br><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom/</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /mnt/cdrom/Packages/</span><br><span class="line">rpm -ivh vsftpd-2.2.2-11.e16.e16.i686.rpm</span><br><span class="line"><span class="comment">#配置文件</span></span><br><span class="line">vi /etc/vsftpd/vsftpd.conf</span><br><span class="line"><span class="comment">#两个属性取消注释</span></span><br><span class="line">anon_upload_enables=YES</span><br><span class="line">anon_mkdir_write_enable=YES</span><br><span class="line"><span class="comment"># /anon_upload_enables 搜索</span></span><br><span class="line"><span class="comment">#服务启动和关闭防火墙</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#进入pub目录创建一个文件</span></span><br><span class="line"><span class="built_in">cd</span> /var/ftp/pub/  <span class="comment">#目录，此目录与windows共享</span></span><br><span class="line"><span class="comment">#顺便修改文件夹权限</span></span><br><span class="line">chmod 777 /var/ftp/pub/</span><br><span class="line">Vim /etc/selinux/config  </span><br><span class="line"><span class="comment">#修改</span></span><br><span class="line">selinux=disabled</span><br><span class="line"><span class="comment">#关闭防火墙 </span></span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Next step : 重启主机</span></span><br><span class="line">service vsftpd start</span><br><span class="line">service iptables stop</span><br><span class="line"><span class="comment">#Windows ftp连接,并cd pub目录 get获取文件</span></span><br><span class="line"><span class="comment">#windows的共享目录在Users/Administeator</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#windows 下面 cmd命令行输入:</span></span><br><span class="line">ftp 192.168.132.2</span><br><span class="line"><span class="comment">#ftp 为默认账号，无密码</span></span><br><span class="line"><span class="built_in">cd</span> pub <span class="comment">#进入共享目录</span></span><br><span class="line">get xxx.txt <span class="comment">#从centerOs_Pub目录下 获取文件 在Users/Administeator下查看</span></span><br><span class="line">put xxx.txt <span class="comment">#从Users/Administeator推文件到center_Os 在pub目录下查看</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#客户端</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.83.175'</span></span><br><span class="line">port = <span class="number">1329</span></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((host,port))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    mes = bytes(input(<span class="string">"Client  input data:"</span>),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="keyword">if</span> mes == <span class="string">'q'</span>:</span><br><span class="line">        print(<span class="string">'it is break'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    s.send(mes)</span><br><span class="line">    data,address = s.recv(<span class="number">1024</span>)</span><br><span class="line">    print(<span class="string">"This is data of Service:&gt;&gt;&gt;&gt;&gt;&gt;"</span>,data)</span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务器端</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">host = <span class="string">'10.200.83.175'</span></span><br><span class="line">port = <span class="number">1329</span></span><br><span class="line"></span><br><span class="line">s =socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.bind((host,port))</span><br><span class="line">s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">ss, addr = s.accept() </span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    data = ss.recv(<span class="number">1024</span>)</span><br><span class="line">    print(data)</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="string">'1'</span>):</span><br><span class="line">        mes = <span class="string">'welcome!'</span></span><br><span class="line">        ss.send(mes)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        mes = bytes(<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">        ss.send(mes)</span><br><span class="line"></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
 
       
     
@@ -265,7 +266,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="http://qingfengsuiyu.github.io/2018/12/22/ftp服务搭建/">http://qingfengsuiyu.github.io/2018/12/22/ftp服务搭建/</a>
+      <a href="http://qingfengsuiyu.github.io/2018/12/22/tcp套接字通信/">http://qingfengsuiyu.github.io/2018/12/22/tcp套接字通信/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -283,16 +284,16 @@
     
   <nav class="article-page">
     
-      <a href="/2018/12/22/WEB服务搭建/" id="art-left" class="art-left">
+      <a href="/2018/12/22/udp套接字通信/" id="art-left" class="art-left">
         <span class="next-title">
-          <i class="iconfont icon-left"></i>WEB服务搭建
+          <i class="iconfont icon-left"></i>udp套接字通信
         </span>
       </a>
     
     
-      <a href="/2018/12/22/DHCP服务器搭建/" id="art-right" class="art-right">
+      <a href="/2018/12/22/多线程修改全局变量/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          DHCP服务器搭建<i class="iconfont icon-right"></i>  
+          多线程修改全局变量<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
@@ -318,7 +319,7 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">ftp服务搭建</a></li>
+      <li class="title-link"><a href="javascript:;" class="toTop">tcp套接字通信</a></li>
       
     </div>
   </aside>
