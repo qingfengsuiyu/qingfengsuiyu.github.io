@@ -70,7 +70,7 @@
     <div class="tagcloud-mask"></div>  
 <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-inner">
-    <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
+    <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
   </div>
 </div>
   
@@ -184,7 +184,7 @@
             </div>
             <div class="mobile-nav-tagcloud">
               <div class="mobile-tagcloud-inner">
-                <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
+                <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/网络操作系统/" style="font-size: 14px;">网络操作系统</a>
               </div>
             </div>
           </div>
@@ -222,6 +222,43 @@
   
 
 <section class="posts">
+  
+    
+  
+  <article class="
+  post
+  
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2018-12-22</span>
+          
+          
+        </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          <a href="/2018/12/22/DNS服务搭建/">DNS服务搭建</a>
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount -t iso9660 /dev/cdrom /mnt/cdrom</span><br><span class="line"></span><br><span class="line">rpm -ivh /mnt/cdrom/Packages/<span class="built_in">bind</span>-9.8.2-0.10.rcl.e16.i686.rpm(可按tap补全)</span><br><span class="line"><span class="comment"># 若上面语句不成功，执行下面</span></span><br><span class="line">rpm -ivh --nodeps <span class="built_in">bind</span>-9.8.2-0.30.rc1.el6.x86_64.rpm </span><br><span class="line"></span><br><span class="line"><span class="comment">#配置1：(空格分隔，一个空格就行)</span></span><br><span class="line">vim /etc/named.conf</span><br><span class="line"></span><br><span class="line">zone <span class="string">"***.com"</span>  IN&#123;</span><br><span class="line">	<span class="built_in">type</span> master;</span><br><span class="line">	file <span class="string">"***.com.zone"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone <span class="string">"137.168.192.in-addr.arpa"</span>  IN&#123;</span><br><span class="line">	<span class="built_in">type</span> master;</span><br><span class="line">	file <span class="string">"192.168.137.rev"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">#配置2：(除42	;serial中间是tab，其他均为一个空格)</span></span><br><span class="line">vim /var/named/***.com.zone</span><br><span class="line"><span class="variable">$TTL</span>  86400</span><br><span class="line">@  IN  SOA  ns1.***.com.  hostmaster.***.com.(</span><br><span class="line">42      ;serial</span><br><span class="line">3H      ;refresh</span><br><span class="line">15M     ;retry</span><br><span class="line">1W      ;expiry</span><br><span class="line">1D)     ;minimum</span><br><span class="line"></span><br><span class="line">@  IN  NS  ns1.***.com.</span><br><span class="line">@  IN  NS  ns2.***.com.</span><br><span class="line"></span><br><span class="line">ns1  IN  A  192.168.137.2</span><br><span class="line">ns2  IN  A  192.168.137.10</span><br><span class="line">host1 IN A  192.168.137.3</span><br><span class="line"></span><br><span class="line">gateway  IN  CNAME  host1.***.com.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置3：</span></span><br><span class="line">vim /var/named/192.168.137.rev</span><br><span class="line"></span><br><span class="line"><span class="variable">$TTL</span>  86400</span><br><span class="line">@  IN  SOA  ns1.lwj.com.  hostmaster.lwj.com.(</span><br><span class="line">42      ;serial</span><br><span class="line">3H      ;refresh</span><br><span class="line">15M     ;retry</span><br><span class="line">1W      ;expiry</span><br><span class="line">1D)     ;minimum</span><br><span class="line"></span><br><span class="line">@   IN   NS  ns1.***.com.</span><br><span class="line">@   IN   NS  ns2.***.com.</span><br><span class="line"></span><br><span class="line">2   IN   PTR  ns1.***.com.</span><br><span class="line">10  IN   PTR  ns2.***.com.</span><br><span class="line">3   IN   PTR  host1.***.com.</span><br><span class="line">3   IN   PTR  gateway.***.com.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查语法是否有误;</span></span><br><span class="line">named-checkconf</span><br><span class="line">named-checkzone lwj.com /var/named/***.com.zone</span><br><span class="line">named-checkzone 137.168.192.in-addr.arpa /var/named/192.168.137.rev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启：</span></span><br><span class="line">rndc-confgen -r /dev/urandom -a</span><br><span class="line">service named start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有发现nslookup</span></span><br><span class="line">rpm -ivh <span class="built_in">bind</span>-utils-9.8.2-0.10.rc1.el6.i686.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正向解析</span></span><br><span class="line">nslookup ns1.***.com.</span><br><span class="line">nslookup ns2.***.com.</span><br><span class="line">nslookup host1.***.com.</span><br><span class="line">nslookup gateway.***.com.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 逆向解析</span></span><br><span class="line">nslookup 192.168.137.2</span><br><span class="line">nslookup 192.168.137.3</span><br><span class="line">nslookup 192.168.137.10</span><br></pre></td></tr></table></figure>
+
+        
+      
+    
+    </div>
+    
+  </article>
+  
+  
+    
+  
+
   
     
   
