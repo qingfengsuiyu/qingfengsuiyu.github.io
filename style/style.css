@@ -218,7 +218,7 @@ template {
   background-color: rgba(94,176,255,0.2);
 }
 body {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   background-color: #fff;
@@ -334,7 +334,7 @@ h6 {
   position: relative;
 }
 .highlight pre * {
-  font-family: $custom-code-font !important;
+  font-family: 'Segoe UI', monospace, Consolas, Monaco, Menlo, 'Microsoft YaHei', sans-serif !important;
 }
 .highlight .gutter {
   width: 10px;
@@ -1007,11 +1007,11 @@ body {
 }
 .post .post-content {
   color: #49545f;
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   padding-bottom: 8px;
 }
 .post .post-content h1 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1019,7 +1019,7 @@ body {
   content: '∮ ';
 }
 .post .post-content h2 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1027,7 +1027,7 @@ body {
   content: '∮ ';
 }
 .post .post-content h3 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1035,7 +1035,7 @@ body {
   content: '∮ ';
 }
 .post .post-content h4 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1043,7 +1043,7 @@ body {
   content: '∮ ';
 }
 .post .post-content h5 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1051,7 +1051,7 @@ body {
   content: '∮ ';
 }
 .post .post-content h6 {
-  font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
+  font-family: 'Helvetica' , 'Hiragino Sans GB' , 'Roboto' , 'Noto SansCJK' , 'Heiti TC' , 'Heiti SC' , sans-serif;
   font-weight: inherit;
   margin: 16px 0;
 }
@@ -1108,7 +1108,7 @@ body {
 .post .post-content code {
   background-color: rgba(94,176,255,0.1);
   color: #395b7c;
-  font-family: $custom-code-font;
+  font-family: 'Segoe UI', monospace, Consolas, Monaco, Menlo, 'Microsoft YaHei', sans-serif;
   margin: 0 4px;
   padding: 0 4px;
 }
