@@ -60,6 +60,28 @@
   <article class="post">
       
         
+          <h1><a href="/2025/04/05/%E5%90%8E%E5%8F%B0json%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E7%9A%84%E6%96%B9%E6%B3%95/">后台json的数据渲染的方法</a></h1>
+        
+      
+      <div class="post-content ">
+        
+  
+
+
+
+
+        <h5 id="后台json的数据渲染的方法"><a href="#后台json的数据渲染的方法" class="headerlink" title="后台json的数据渲染的方法:"></a>后台json的数据渲染的方法:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回的数据形式</span></span><br><span class="line"><span class="attr">jcrJson</span>: [&#123;<span class="attr">edition</span>: <span class="string">&quot;SCIE&quot;</span>, <span class="attr">category</span>: <span class="string">&quot;ANESTHESIOLOGY&quot;</span>, <span class="attr">jrcZone</span>: <span class="string">&quot;Q3&quot;</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// json数据处理</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getJcrSub</span> = (<span class="params">jcrJson</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 如果jcr_Json是字符串，先解析它</span></span><br><span class="line">    <span class="keyword">const</span> jcrData = <span class="keyword">typeof</span> jcrJson === <span class="string">&#x27;string&#x27;</span> ? <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jcrJson) : jcrJson;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 检查是否有数据</span></span><br><span class="line">    <span class="keyword">if</span> (jcrData &amp;&amp; jcrData.<span class="property">length</span> &gt; <span class="number">0</span> &amp;&amp; jcrData[<span class="number">0</span>].<span class="property">sub</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> jcrData[<span class="number">0</span>].<span class="property">sub</span>; <span class="comment">// 目标数据</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果没有数据或数据格式不对，返回默认值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;<span class="number">3</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error parsing JCR data:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 渲染</span><br><span class="line">&lt;td&gt;&#123;&#123; getJcrSub(journal.jcr_Json) &#125;&#125;&lt;/td&gt;</span><br></pre></td></tr></table></figure>
+
+      </div>
+  </article>
+
+  <article class="post">
+      
+        
           <h1><a href="/2025/04/04/MutationObserver%E7%94%A8%E6%B3%95/">MutationObserver用法示例</a></h1>
         
       
