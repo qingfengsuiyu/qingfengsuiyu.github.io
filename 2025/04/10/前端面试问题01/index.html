@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端面试问题01 | DayBreak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端面试总结:1.如何实现一个页面，两端各留 200px，中间是一个自适应的界面？提供了三种实现方式：Flexbox 布局、Grid 布局和浮动布局。 1.Flex(灵活)box 布局   12345678910111213.container &#123;  display: flex;&#125;.side &#123;   &#x2F;* flex: &lt;flex-grow&gt; &lt;fle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试问题01">
+<meta property="og:url" content="https://qingfengsuiyu.github.io/2025/04/10/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%9801/index.html">
+<meta property="og:site_name" content="DayBreak">
+<meta property="og:description" content="前端面试总结:1.如何实现一个页面，两端各留 200px，中间是一个自适应的界面？提供了三种实现方式：Flexbox 布局、Grid 布局和浮动布局。 1.Flex(灵活)box 布局   12345678910111213.container &#123;  display: flex;&#125;.side &#123;   &#x2F;* flex: &lt;flex-grow&gt; &lt;fle">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-10T12:12:56.000Z">
+<meta property="article:modified_time" content="2025-04-10T12:13:37.355Z">
+<meta property="article:author" content="Xiaoyi Hao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="DayBreak" type="application/atom+xml">
+  
+  
+  
+  
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0.css">
+
+  
+<link rel="stylesheet" href="/lib/fancybox/dist/jquery.fancybox.min.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/" title="DayBreak">DayBreak</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Search" onfocus="if (value =='Search'){value =''}" onblur="if (value ==''){value='Search'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/">Home</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/archives">Archives</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/">前端面试问题01</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Author Xiaoyi Hao</li>
+  <li><i class="fa fa-calendar"></i> Date Apr 10</li>
+  <li><i class="fa fa-folder"></i> Categories
+  
+    no_categories
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <h4 id="前端面试总结"><a href="#前端面试总结" class="headerlink" title="前端面试总结:"></a><strong>前端面试总结:</strong></h4><h5 id="1-如何实现一个页面，两端各留-200px，中间是一个自适应的界面？"><a href="#1-如何实现一个页面，两端各留-200px，中间是一个自适应的界面？" class="headerlink" title="1.如何实现一个页面，两端各留 200px，中间是一个自适应的界面？"></a><strong>1.如何实现一个页面，两端各留 200px，中间是一个自适应的界面？</strong></h5><p>提供了三种实现方式：Flexbox 布局、Grid 布局和浮动布局。</p>
+<p>1.<strong>Flex(灵活)box 布局</strong>  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.side</span> &#123;</span><br><span class="line">   <span class="comment">/* flex: &lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt; */</span></span><br><span class="line">   <span class="comment">/* flex-grow（弹性增长系数）：定义了Flex项目在Flex容器中可以占据的空间比例。默认0</span></span><br><span class="line"><span class="comment">			flex-shrink（弹性缩小系数）：定义了Flex项目在Flex容器空间不足时可以缩小的比例。默认1</span></span><br><span class="line"><span class="comment">			flex-basis（基准宽度/高度）：定义了Flex项目的基准宽度或高度，在Flex容器中初始占据的大小*/</span></span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">200px</span>; <span class="comment">/* 固定宽度200px，不伸缩 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 占据所有剩余空间 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;side&quot;</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>中间自适应内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;side&quot;</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>Grid(表格) 布局</strong>  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">grid-template-columns: 200px 1fr 200px; 的意思是：</span></span><br><span class="line"><span class="comment">创建一个网格容器，分为三列。</span></span><br><span class="line"><span class="comment">fr: &quot;分数单位&quot;(fraction unit)</span></span><br><span class="line"><span class="comment">第一列和第三列的宽度固定为200像素。</span></span><br><span class="line"><span class="comment">第二列的宽度是剩余空间的1份，即占据容器剩余宽度的全部。</span></span><br><span class="line"><span class="comment">grid-template-columns: 1fr - 一列占据所有可用宽度</span></span><br><span class="line"><span class="comment">grid-template-columns: 1fr 1fr - 两列平均分配可用宽度(各50%)</span></span><br><span class="line"><span class="comment">grid-template-columns: 1fr 2fr - 第一列占1/3宽度，第二列占2/3宽度</span></span><br><span class="line"><span class="comment">grid-template-columns: 200px 1fr 200px - 两侧固定200px，中间占据所有剩余宽度</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">200px</span> <span class="number">1</span>fr <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 上面父容器已经实现了布局*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;side&quot;</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>中间自适应内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;side&quot;</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3.<strong>浮动布局 + 外边距</strong>  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">220px</span>; <span class="comment">/* 稍微大一点以留出间距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>中间自适应内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-什么是语义化标签？常见的语义化标签有哪些？"><a href="#2-什么是语义化标签？常见的语义化标签有哪些？" class="headerlink" title="2. 什么是语义化标签？常见的语义化标签有哪些？"></a><strong>2. 什么是语义化标签？常见的语义化标签有哪些？</strong></h5><p>语义化标签是指具有明确含义的 HTML 标签，能帮助浏览器、搜索引擎和开发者理解网页内容和结构。以下是常见的语义化标签及其分类。</p>
+<ol>
+<li><p><strong>结构标签</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span> <span class="comment">&lt;!-- 页面或章节头部 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span> <span class="comment">&lt;!-- 导航菜单 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span><span class="tag">&lt;/<span class="name">main</span>&gt;</span> <span class="comment">&lt;!-- 页面主要内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span> <span class="comment">&lt;!-- 页面章节或部分 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span> <span class="comment">&lt;!-- 独立文章或内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span> <span class="comment">&lt;!-- 与主要内容相关的附加信息 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span> <span class="comment">&lt;!-- 页面或章节底部 --&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>内容标签</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span> <span class="comment">&lt;!-- 标题（h1到h6） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="comment">&lt;!-- 段落 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span> <span class="comment">&lt;!-- 无序列表 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="tag">&lt;/<span class="name">ol</span>&gt;</span> <span class="comment">&lt;!-- 有序列表 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span><span class="tag">&lt;/<span class="name">dl</span>&gt;</span> <span class="comment">&lt;!-- 定义列表 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span><span class="tag">&lt;/<span class="name">figure</span>&gt;</span> <span class="comment">&lt;!-- 独立的图像或图表 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span> <span class="comment">&lt;!-- 图像或图表标题 --&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>表单标签</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span> <span class="comment">&lt;!-- 表单 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="comment">&lt;!-- 输入框标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span>&gt;</span> <span class="comment">&lt;!-- 输入框 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span> <span class="comment">&lt;!-- 多行文本输入框 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span> <span class="comment">&lt;!-- 下拉列表 --&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>其他标签</strong>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">time</span>&gt;</span> <span class="comment">&lt;!-- 时间 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span><span class="tag">&lt;/<span class="name">address</span>&gt;</span> <span class="comment">&lt;!-- 地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span> <span class="comment">&lt;!-- 引用文本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">q</span>&gt;</span><span class="tag">&lt;/<span class="name">q</span>&gt;</span> <span class="comment">&lt;!-- 短引用 --&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="3-什么是回流（Reflow）和重绘（Repaint）？它们有何区别及优化方式？"><a href="#3-什么是回流（Reflow）和重绘（Repaint）？它们有何区别及优化方式？" class="headerlink" title="3. 什么是回流（Reflow）和重绘（Repaint）？它们有何区别及优化方式？"></a><strong>3. 什么是回流（Reflow）和重绘（Repaint）？它们有何区别及优化方式？</strong></h5><p>回流（Reflow）是浏览器重新计算网页布局和尺寸的过程，重绘（Repaint）是重新绘制网页视觉外观的过程。以下是详细说明及优化措施。</p>
+<ol>
+<li><p><strong>回流（Reflow）</strong><br>回流发生于网页布局变化，浏览器需重新计算元素尺寸、位置和布局。触发场景包括：  </p>
+<ul>
+<li>添加或删除元素  </li>
+<li>修改元素的尺寸或位置  </li>
+<li>修改样式（如宽度、高度、边距等）  </li>
+<li>窗口大小变化</li>
+</ul>
+</li>
+<li><p><strong>重绘（Repaint）</strong><br>重绘发生于网页视觉外观变化，浏览器需重新绘制受影响元素。触发场景包括： </p>
+<ul>
+<li>修改颜色或背景色</li>
+<li>修改边框或阴影  </li>
+<li>修改透明度或可见性</li>
+</ul>
+</li>
+<li><p><strong>优化措施</strong><br>为减少性能消耗，可采用以下方法：  </p>
+<ul>
+<li>避免不必要的 DOM 操作  </li>
+<li>缓存布局和尺寸值  </li>
+<li>避免使用 <code>offsetParent</code>、<code>offsetTop</code> 等属性  </li>
+<li>使用 <code>requestAnimationFrame</code> 进行动画  </li>
+<li>用 <code>visibility: hidden</code> 替代 <code>display: none</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="4-常见的盒子模型有哪些？它们的特点和区别是什么？"><a href="#4-常见的盒子模型有哪些？它们的特点和区别是什么？" class="headerlink" title="4. 常见的盒子模型有哪些？它们的特点和区别是什么？"></a><strong>4. 常见的盒子模型有哪些？它们的特点和区别是什么？</strong></h5><p><strong>标准盒子模型（W3C盒子模型）</strong><br>元素由内容、内边距、边框和外边距组成，宽度和高度仅包括内容区域。  </p>
+<ul>
+<li><code>content</code>：实际内容区域。  </li>
+<li><code>padding</code>：内容与边框间的内边距。  </li>
+<li><code>border</code>：围绕内容和内边距的边框。  </li>
+<li><code>margin</code>：元素与其他元素的外边距。<br>计算公式：  </li>
+<li>宽度：<code>width = content + padding + border</code>  </li>
+<li>高度：<code>height = content + padding + border</code></li>
+</ul>
+<h5 id="5-如何判断一个元素是否在可视区域内？"><a href="#5-如何判断一个元素是否在可视区域内？" class="headerlink" title="5. 如何判断一个元素是否在可视区域内？"></a><strong>5. 如何判断一个元素是否在可视区域内？</strong></h5><p>判断元素是否在可视区域内可通过以下四种方法实现。</p>
+<ol>
+<li><p><strong>使用 getBoundingClientRect() 方法</strong><br>获取元素的边界矩形信息，检查其 <code>top</code> 和 <code>bottom</code> 是否在视口范围内。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myElement&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> rect = element.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line"><span class="comment">// globalThis.innerHeight 用于获取浏览器窗口的内部高度（视口高度），单位为像素。</span></span><br><span class="line"><span class="keyword">if</span> (rect.<span class="property">top</span> &gt;= <span class="number">0</span> &amp;&amp; rect.<span class="property">bottom</span> &lt;= globalThis.<span class="property">innerHeight</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;元素在可视区域内&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;元素不在可视区域内&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用 IntersectionObserver API</strong><br>异步监听元素与视口的交叉状态，效率更高。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> globalThis.<span class="title class_">IntersectionObserver</span>(<span class="function">(<span class="params">entries</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (entries[<span class="number">0</span>].<span class="property">isIntersecting</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;元素在可视区域内&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;元素不在可视区域内&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myElement&#x27;</span>);</span><br><span class="line">observer.<span class="title function_">observe</span>(element);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点"><a href="#回答要点" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>getBoundingClientRect()</strong>: 返回元素边界矩形，通过 <code>top</code> 和 <code>bottom</code> 判断是否在视口内，简单直观。</li>
+<li><strong>IntersectionObserver</strong>: 异步检测交叉状态，性能优异，适合动态内容和懒加载。</li>
+<li><strong>适用场景</strong>: <code>IntersectionObserver</code> 适合现代开发，<code>getBoundingClientRect()</code> 为通用选择，其他方法视具体需求使用。</li>
+</ul>
+<h5 id="6-什么是-JavaScript-的事件循环（Event-Loop）？其原理和优化方法有哪些？"><a href="#6-什么是-JavaScript-的事件循环（Event-Loop）？其原理和优化方法有哪些？" class="headerlink" title="6. 什么是 JavaScript 的事件循环（Event Loop）？其原理和优化方法有哪些？"></a><strong>6. 什么是 JavaScript 的事件循环（Event Loop）？其原理和优化方法有哪些？</strong></h5><p>JavaScript 的事件循环（Event Loop）是<strong>管理代码执行顺序和异步操作的机制</strong>。以下是其原理、示例及优化方法。</p>
+<ol>
+<li><p><strong>事件循环基本原理</strong>  </p>
+<ul>
+<li>主线程执行 JavaScript 代码。  </li>
+<li><strong>异步任务（如定时器、事件监听器）被添加到任务队列。</strong>  </li>
+<li>事件循环持续检查任务队列，执行其中的任务。</li>
+</ul>
+</li>
+<li><p><strong>事件循环步骤</strong>  </p>
+<ul>
+<li><strong>同步代码直接在执行栈中运行</strong>。  </li>
+<li><strong>异步代码推入任务队列，待执行栈清空后处理</strong>。  </li>
+<li>回调函数在异步操作完成时被调用。</li>
+</ul>
+</li>
+<li><p><strong>宏任务与微任务</strong>  </p>
+<ul>
+<li>宏任务：耗时<strong>较长</strong>的任务，如<strong>定时器</strong>、事件<strong>监听器</strong>。  </li>
+<li>微任务：耗时较短的任务，如 <strong>Promise、async&#x2F;await</strong>。</li>
+</ul>
+</li>
+<li><p><strong>示例代码</strong>  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：<code>1 3 2</code>  </p>
+</li>
+<li><p><strong>优化与常见问题</strong>  </p>
+<ul>
+<li>使用微任务（如 Promise）提升执行效率。  </li>
+<li><strong>尽量避免宏任务以减少延迟。</strong>  </li>
+<li>使用 async&#x2F;await 简化异步逻辑。  </li>
+<li>注意回调地狱和异步代码执行顺序问题。</li>
+</ul>
+</li>
+</ol>
+<h5 id="7-var、let-和-const-的区别是什么？"><a href="#7-var、let-和-const-的区别是什么？" class="headerlink" title="7. var、let 和 const 的区别是什么？"></a><strong>7. var、let 和 const 的区别是什么？</strong></h5><p><code>var</code>、<code>let</code> 和 <code>const</code> 是 JavaScript 中定义变量的三种方式，以下是它们的主要区别。</p>
+<ol>
+<li><p><strong>作用域</strong>  </p>
+<ul>
+<li><code>var</code>：函数作用域，整个函数内可访问。  </li>
+<li><code>let</code> 和 <code>const</code>：块级作用域**”{}”**内有效，仅限块内访问。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">20</span>;</span><br><span class="line">  <span class="keyword">const</span> z = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// 10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">// ReferenceError: y is not defined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(z); <span class="comment">// ReferenceError: z is not defined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>变量提升</strong>  </p>
+<ul>
+<li><code>var</code>：存在变量提升，声明前访问为 <code>undefined</code>。  </li>
+<li><code>let</code> 和 <code>const</code>：无提升，声明前访问报错。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">// ReferenceError: Cannot access &#x27;y&#x27; before initialization</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>重复声明</strong>  </p>
+<ul>
+<li><code>var</code>：允许重复声明，后声明覆盖前值。  </li>
+<li><code>let</code> 和 <code>const</code>：禁止重复声明，报错。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">20</span>; <span class="comment">// x = 20</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> y = <span class="number">20</span>; <span class="comment">// SyntaxError: Identifier &#x27;y&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>常量特性</strong>  </p>
+<ul>
+<li><code>const</code>：值不可重新赋值，需初始化。  </li>
+<li><code>var</code> 和 <code>let</code>：值可修改。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">PI</span> = <span class="number">3.14</span>;</span><br><span class="line"><span class="variable constant_">PI</span> = <span class="number">2.71</span>; <span class="comment">// TypeError: Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>块级作用域应用</strong>  </p>
+<ul>
+<li><code>let</code> 和 <code>const</code>：适合循环和条件语句，保持独立作用域。  </li>
+<li><code>var</code>：函数作用域，循环中易导致意外行为。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i); <span class="comment">// 10</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(j); <span class="comment">// 0, 1, 2, ..., 9</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点-1"><a href="#回答要点-1" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>作用域</strong>: <code>var</code> 为函数作用域，<code>let</code> 和 <code>const</code> 为块级作用域，限制更严格。</li>
+<li><strong>变量提升</strong>: <code>var</code> 支持提升，<code>let</code> 和 <code>const</code> 不支持，访问前报错。</li>
+<li><strong>重复声明</strong>: <code>var</code> 允许覆盖，<code>let</code> 和 <code>const</code> 禁止重复声明。</li>
+<li><strong>常量特性</strong>: <code>const</code> 值不可改，<code>var</code> 和 <code>let</code> 可变。</li>
+<li><strong>应用场景</strong>: <code>let</code> 和 <code>const</code> 适合现代开发，<code>const</code> 用于常量，<code>let</code> 用于可变值，<code>var</code> 因局限性逐渐废弃。</li>
+</ul>
+<h5 id="8-普通函数和箭头函数的区别是什么？"><a href="#8-普通函数和箭头函数的区别是什么？" class="headerlink" title="8. 普通函数和箭头函数的区别是什么？"></a><strong>8. 普通函数和箭头函数的区别是什么？</strong></h5><p>普通函数和箭头函数是 JavaScript 中定义函数的两种方式，以下是它们的区别。</p>
+<ol>
+<li><p><strong>语法</strong>  </p>
+<ul>
+<li>普通函数：使用 <code>function</code> 关键字。  </li>
+<li>箭头函数：使用 <code>=&gt;</code> 符号，语法更简洁。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">addArrow</span> = (<span class="params">x, y</span>) =&gt; x + y;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>this 绑定</strong>  </p>
+<ul>
+<li>普通函数：<code>this</code> 取决于调用时的上下文。  </li>
+<li>箭头函数：<code>this</code> 固定为定义时的外层作用域。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">  <span class="attr">sayHello</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// John</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">sayHelloArrow</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>arguments(参数集合) 对象</strong>  </p>
+<ul>
+<li>普通函数：拥有自己的 <code>arguments</code> 对象。  </li>
+<li>箭头函数：无 <code>arguments</code> 对象，需从外层作用域继承。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">addArrow</span> = (<span class="params">x</span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>); <span class="comment">// ReferenceError: arguments is not defined</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>super 关键字</strong>  </p>
+<ul>
+<li>普通函数：在类中可通过 <code>super</code> 调用父类构造函数。  </li>
+<li>箭头函数：无 <code>super</code>，但可用于类中绑定 <code>this</code>。</li>
+</ul>
+<p><strong>在 JavaScript 的类继承中</strong>，如果子类有自己的构造函数（<code>constructor</code>），那么<strong>必须</strong>在使用 <code>this</code> 之前调用 <code>super()</code>。这是因为：</p>
+<ul>
+<li>子类需要先初始化从父类继承的部分</li>
+<li>然后才能在此基础上添加或修改自己的属性和方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Parent constructor&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Parent</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Child constructor&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  sayHello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>返回值</strong>  </p>
+<ul>
+<li>普通函数：需显式 <code>return</code> 返回值。  </li>
+<li>箭头函数：单表达式可省略 <code>return</code> 和花括号。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">addArrow</span> = (<span class="params">x, y</span>) =&gt; x + y;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点-2"><a href="#回答要点-2" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>语法</strong>: 普通函数用 <code>function</code>，箭头函数用 <code>=&gt;</code>，后者更简洁。</li>
+<li><strong>this 绑定</strong>: 普通函数动态绑定 <code>this</code>，箭头函数固定为定义时的 <code>this</code>。</li>
+<li><strong>arguments</strong>: 普通函数有 <code>arguments</code>，箭头函数无，需依赖外层。</li>
+<li><strong>super</strong>: 普通函数支持 <code>super</code> 调用父类，箭头函数无 <code>super</code> 但可用于类方法。</li>
+<li><strong>适用场景</strong>: 普通函数适合对象方法和构造函数，箭头函数适合回调和事件监听器。</li>
+</ul>
+<h5 id="9-常见的-Promise-方法有哪些？"><a href="#9-常见的-Promise-方法有哪些？" class="headerlink" title="9. 常见的 Promise 方法有哪些？"></a><strong>9. 常见的 Promise 方法有哪些？</strong></h5><p>Promise 是 JavaScript 中处理异步操作的重要机制，以下是常见的 Promise 方法及其功能。</p>
+<ol>
+<li><p><strong>then() 方法</strong><br>处理 Promise 的成功状态，接收成功值。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">promise.<span class="title function_">then</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 成功</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>catch() 方法</strong><br>处理 Promise 的失败状态，接收错误信息。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">reject</span>(<span class="string">&#x27;失败&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">promise.<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(error); <span class="comment">// 失败</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>finally() 方法</strong><br>在 Promise 完成（成功或失败）后执行操作。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">promise.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>all() 方法</strong><br>处理多个 Promise，待全部成功后返回结果数组。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功1&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> promise2 = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([promise1, promise2]).<span class="title function_">then</span>(<span class="function">(<span class="params">values</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(values); <span class="comment">// [&#x27;成功1&#x27;, &#x27;成功2&#x27;]</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>race() 方法</strong><br>处理多个 Promise，返回最先完成的结果。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise1 = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功1&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> promise2 = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">race</span>([promise1, promise2]).<span class="title function_">then</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 成功1</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>resolve() 方法</strong><br>创建一个直接成功的 Promise。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">resolve</span>(<span class="string">&#x27;成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>reject() 方法</strong><br>创建一个直接失败的 Promise。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">reject</span>(<span class="string">&#x27;失败&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点-3"><a href="#回答要点-3" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>then()</strong>: 捕获成功状态，处理异步结果。</li>
+<li><strong>catch()</strong>: 捕获失败状态，处理错误信息。</li>
+<li><strong>finally()</strong>: 无论成功或失败都执行，适合清理操作。</li>
+<li><strong>all()</strong>: 等待所有 Promise 成功，返回结果数组，适合批量处理。</li>
+<li><strong>race()</strong>: 返回最先完成的 Promise 结果，适合竞争场景。</li>
+<li><strong>resolve()&#x2F;reject()</strong>: 直接设置 Promise 状态，常用于初始化。</li>
+</ul>
+<h5 id="10-什么是深拷贝和浅拷贝？如何实现？"><a href="#10-什么是深拷贝和浅拷贝？如何实现？" class="headerlink" title="10. 什么是深拷贝和浅拷贝？如何实现？"></a><strong>10. 什么是深拷贝和浅拷贝？如何实现？</strong></h5><p>浅拷贝复制对象或数组的引用，深拷贝递归复制其内部属性或元素。以下是它们的定义及实现方法。</p>
+<ol>
+<li><p><strong>浅拷贝</strong><br>创建新对象或数组，仅复制顶层属性，内部引用仍共享。  </p>
+<ul>
+<li><strong>使用 <code>Object.assign()</code></strong>  </li>
+<li><strong>使用展开运算符 <code>...</code></strong>  </li>
+<li><strong>使用 <code>Array.prototype.slice()</code></strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: &#123; <span class="attr">c</span>: <span class="number">2</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">const</span> shallowCopy = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj);</span><br><span class="line"><span class="keyword">const</span> shallowCopy2 = &#123; ...obj &#125;;</span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line"><span class="keyword">const</span> shallowCopy3 = arr.<span class="title function_">slice</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>深拷贝</strong><br><strong>创建新对象或数组，递归复制所有层级属性，生成完全独立副本</strong>。  </p>
+<ul>
+<li><strong>使用 <code>JSON.parse(JSON.stringify())</code>（限于 JSON 数据）</strong>  </li>
+<li><strong>使用递归函数</strong>  </li>
+<li>使用 <code>lodash.cloneDeep()</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSON 方法</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: &#123; <span class="attr">c</span>: <span class="number">2</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">const</span> deepCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br><span class="line"><span class="comment">// 递归函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span> || obj === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj)) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj.<span class="title function_">map</span>(deepCopy);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> copy = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    copy[key] = <span class="title function_">deepCopy</span>(obj[key]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// lodash 方法</span></span><br><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> deepCopy2 = _.<span class="title function_">cloneDeep</span>(obj);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点-4"><a href="#回答要点-4" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>浅拷贝定义</strong>: 复制顶层属性，内部对象仍共享引用。</li>
+<li><strong>深拷贝定义</strong>: 递归复制所有层级，生成独立副本。</li>
+<li><strong>浅拷贝实现</strong>: <code>Object.assign()</code>、展开运算符 <code>...</code>、<code>slice()</code>，适合简单复制。</li>
+<li><strong>深拷贝实现</strong>: <code>JSON.parse(JSON.stringify())</code>（有限制）、递归函数（通用）、<code>lodash.cloneDeep()</code>（高效）。</li>
+<li><strong>注意事项</strong>: 浅拷贝修改嵌套对象会影响原数据；深拷贝需考虑循环引用和非 JSON 数据（如函数）。</li>
+</ul>
+<h5 id="11-对象-A-有很多属性，如何浅拷贝到对象-B？"><a href="#11-对象-A-有很多属性，如何浅拷贝到对象-B？" class="headerlink" title="11. 对象 A 有很多属性，如何浅拷贝到对象 B？"></a><strong>11. 对象 A 有很多属性，如何浅拷贝到对象 B？</strong></h5><p>浅拷贝对象 A 到对象 B 时，可通过以下方法实现。</p>
+<ol>
+<li><p><strong>使用 Object.assign()</strong><br>将对象 A 的属性复制到对象 B，简单高效。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> A = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> B = &#123;&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(B, A);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用展开运算符 …</strong><br>利用展开运算符创建新对象，语法简洁。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> A = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> B = &#123; ...A &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用 Object.keys() 和 forEach()</strong><br>遍历对象 A 的键，逐一复制到对象 B，逻辑清晰。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> A = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> B = &#123;&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(A).<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  B[key] = A[key];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>常见数组方法：</strong></p>
+<ol>
+<li><p><strong>forEach()</strong>：遍历数组的每个元素,<strong>返回数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(item); <span class="comment">// 输出：1, 2, 3, 4</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>map()</strong>：将数组的每个元素转换为新的<strong>数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item * <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newArr); <span class="comment">// 输出：[2, 4, 6, 8]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>filter()</strong>：过滤数组中的元素,<strong>返回数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> filteredArr = arr.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(filteredArr); <span class="comment">// 输出：[3, 4]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>reduce()</strong>：将数组的元素累积成一个<strong>值</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> sum = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + item, <span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum); <span class="comment">// 输出：10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>find()</strong>：查找数组中第一个满足条件的元素**,返回值**。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> found = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(found); <span class="comment">// 输出：3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>findIndex()</strong>：查找数组中第一个满足条件的元素的<strong>索引</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> index = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(index); <span class="comment">// 输出：2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>some()</strong>：检查数组中是否有元素满足条件,<strong>返回布尔类型</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> has = arr.<span class="title function_">some</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">3</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(has); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>every()</strong>：检查数组中所有元素是否满足条件,<strong>返回布尔类型</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> all = arr.<span class="title function_">every</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(all); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>concat()</strong>：合并两个或多个数组,<strong>返回数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> merged = arr1.<span class="title function_">concat</span>(arr2);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(merged); <span class="comment">// 输出：[1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>slice()</strong>：截取数组的一部分,<strong>返回数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> sliced = arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">3</span>); <span class="comment">// 起始下标,结束下标</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sliced); <span class="comment">// 输出：[2, 3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>splice()</strong>：插入、删除或替换数组中的元素,<strong>返回数组</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// 输出：[1, 3, 4]</span></span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// 输出：[1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 替换</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// 输出：[1, 10, 3, 4]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>sort()</strong>：对数组的元素进行排序,<strong>返回数组</strong>。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// 输出：[1, 2, 3, 4]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="13-常见的字符串方法有哪些？"><a href="#13-常见的字符串方法有哪些？" class="headerlink" title="13. 常见的字符串方法有哪些？"></a><strong>13. 常见的字符串方法有哪些？</strong></h5><p>以下是 JavaScript 中常用的字符串方法及其功能。</p>
+<ol>
+<li><p><strong>concat()</strong><br>连接多个字符串，返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello&#x27;</span>.<span class="title function_">concat</span>(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;World&#x27;</span>); <span class="comment">// &#x27;Hello World&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>indexOf()</strong><br>返回指定值的首次出现索引，未找到返回 -1。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = <span class="string">&#x27;Hello World&#x27;</span>.<span class="title function_">indexOf</span>(<span class="string">&#x27;World&#x27;</span>); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>lastIndexOf()</strong><br>从末尾查找指定值的索引，未找到返回 -1。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lastIndex = <span class="string">&#x27;Hello World World&#x27;</span>.<span class="title function_">lastIndexOf</span>(<span class="string">&#x27;World&#x27;</span>); <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>slice()</strong><br>截取字符串指定部分，返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sliced = <span class="string">&#x27;Hello World&#x27;</span>.<span class="title function_">slice</span>(<span class="number">6</span>, <span class="number">11</span>); <span class="comment">// &#x27;World&#x27;,起始下标(有效),结束(无效)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>substring()</strong><br>截取字符串指定部分，返回新字符串（不支持负索引）。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sub = <span class="string">&#x27;Hello World&#x27;</span>.<span class="title function_">substring</span>(<span class="number">6</span>, <span class="number">11</span>); <span class="comment">// &#x27;World&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>toUpperCase()</strong><br>将字符串转换为大写，返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> upper = <span class="string">&#x27;hello&#x27;</span>.<span class="title function_">toUpperCase</span>(); <span class="comment">// &#x27;HELLO&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>toLowerCase()</strong><br>将字符串转换为小写，返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lower = <span class="string">&#x27;HELLO&#x27;</span>.<span class="title function_">toLowerCase</span>(); <span class="comment">// &#x27;hello&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>trim()</strong><br>去除首尾空格，返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> trimmed = <span class="string">&#x27;  Hello  &#x27;</span>.<span class="title function_">trim</span>(); <span class="comment">// &#x27;Hello&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>replace()</strong><br>替换指定值（默认仅首次匹配），返回新字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> replaced = <span class="string">&#x27;Hello World&#x27;</span>.<span class="title function_">replace</span>(<span class="string">&#x27;World&#x27;</span>, <span class="string">&#x27;JavaScript&#x27;</span>); <span class="comment">// &#x27;Hello JavaScript&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>split()</strong><br>将字符串按指定分隔符分割为数组。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="string">&#x27;a,b,c&#x27;</span>.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>); <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>charAt()</strong><br>返回指定索引的字符。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> char = <span class="string">&#x27;Hello&#x27;</span>.<span class="title function_">charAt</span>(<span class="number">1</span>); <span class="comment">// &#x27;e&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>charCodeAt()</strong><br>返回指定索引字符的 Unicode 编码。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="string">&#x27;Hello&#x27;</span>.<span class="title function_">charCodeAt</span>(<span class="number">1</span>); <span class="comment">// 101</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="回答要点-5"><a href="#回答要点-5" class="headerlink" title="回答要点:"></a>回答要点:</h5><ul>
+<li><strong>连接与查找</strong>: <code>concat()</code> 拼接字符串，<code>indexOf()</code> 和 <code>lastIndexOf()</code> 定位子串。</li>
+<li><strong>截取</strong>: <code>slice()</code> 和 <code>substring()</code> 提取子串，<code>slice()</code> 支持负索引。</li>
+<li><strong>大小写转换</strong>: <code>toUpperCase()</code> 和 <code>toLowerCase()</code> 改变字母大小写。</li>
+<li><strong>清理与替换</strong>: <code>trim()</code> 去除空格，<code>replace()</code> 替换子串。</li>
+<li><strong>分割与字符操作</strong>: <code>split()</code> 生成数组，<code>charAt()</code> 和 <code>charCodeAt()</code> 处理单个字符。</li>
+</ul>
+<h5 id="变量类型："><a href="#变量类型：" class="headerlink" title="变量类型："></a><strong>变量类型：</strong></h5><ol>
+<li><strong>基本类型：</strong></li>
+</ol>
+<ul>
+<li><strong>Number</strong>：数字类型，如 <code>123</code>。</li>
+<li><strong>String</strong>：字符串类型，如 <code>&quot;hello&quot;</code>。</li>
+<li><strong>Boolean</strong>：布尔类型，如 <code>true</code> 或 <code>false</code>。</li>
+<li><strong>Null</strong>：空类型，如 <code>null</code>。</li>
+<li><strong>Undefined</strong>：未定义类型，如 <code>undefined</code>。</li>
+</ul>
+<ol start="2">
+<li><strong>引用类型：</strong></li>
+</ol>
+<ul>
+<li><strong>Object</strong>：对象类型，如 <code>&#123; a: 1, b: 2 &#125;</code>。</li>
+<li><strong>Array</strong>：数组类型，如 <code>[1, 2, 3]</code>。</li>
+<li><strong>Function</strong>：函数类型，如 <code>function() &#123;&#125;</code>。</li>
+</ul>
+<p><strong>14. 什么是插槽（Slot）及其类型和用途？</strong> 以下是关于插槽（Slot）的概念、类型及其在组件开发中的应用。</p>
+<ol>
+<li><strong>插槽概念</strong> 一种在组件中预留的占位符，允许父组件向子组件插入自定义内容。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件定义插槽 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span>  <span class="comment">&lt;!-- 插槽占位符 --&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- 父组件使用插槽 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">child-component</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是插入到插槽的内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>默认插槽</strong> 组件中没有指定名称的基础插槽，接收所有未指定目标的内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">slot</span>&gt;</span>默认内容，当没有提供内容时显示<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>具名插槽</strong> 带有名称的插槽，允许在不同位置插入不同内容。 <strong>name标识</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;header&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">main</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;footer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:header</span>&gt;</span>卡片标题<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>卡片主体内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:footer</span>&gt;</span>卡片底部<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">card</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>作用域插槽</strong> 能够访问子组件数据的特殊插槽，实现了从子到父的数据传递。 <strong>v-slot传递</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:item</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">my-list</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:default</span>=<span class="string">&quot;slotProps&quot;</span>&gt;</span>  <span class="comment">&lt;!-- 传值 --&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; slotProps.item.name &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span> <span class="comment">&lt;!-- 渲染 --&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">my-list</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Vue 实现方式</strong> 使用 <code>&lt;slot&gt;</code> 标签定义插槽位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="title class_">Vue</span> <span class="number">3</span>语法 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:header</span>=<span class="string">&quot;slotProps&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  &#123;&#123; slotProps.user.name &#125;&#125;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!-- 简写语法 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span> #<span class="attr">header</span>=<span class="string">&quot;slotProps&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  &#123;&#123; slotProps.user.name &#125;&#125;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>回答要点:</p>
+<ul>
+<li><strong>基本概念</strong>: 插槽是组件中的预留位置，允许父组件注入自定义内容。</li>
+<li><strong>插槽类型</strong>: 包括默认插槽（无名称）、具名插槽（有特定名称）和作用域插槽（可访问子组件数据）。</li>
+<li><strong>应用价值</strong>: 提高组件复用性，增强灵活性，实现内容分发，简化复杂组件实现。</li>
+<li><strong>框架实现</strong>: Vue使用<code>&lt;slot&gt;</code>标签，React使用props.children或Render Props模式。</li>
+<li><strong>特点</strong>: 插槽机制是组件化开发的核心技术，促进了组件的可扩展性和可维护性。</li>
+</ul>
+<p><strong>15：axios你是如何使用的？</strong></p>
+<p>axios是一款流行的HTTP客户端库，用于发送HTTP请求。我通常使用axios来发送GET、POST、PUT、DELETE等请求，与后端服务器进行交互。</p>
+<p><strong>使用场景：</strong></p>
+<ol>
+<li><strong>发送GET请求</strong>：获取数据，如获取用户信息。</li>
+<li><strong>发送POST请求</strong>：提交数据，如提交表单数据。</li>
+<li><strong>发送PUT请求</strong>：更新数据，如更新用户信息。</li>
+<li><strong>发送DELETE请求</strong>：删除数据，如删除用户。</li>
+</ol>
+<p><strong>axios的优势：</strong></p>
+<ol>
+<li><strong>简单易用</strong>：axios的API简单易用，容易上手。</li>
+<li><strong>支持Promise</strong>：axios支持Promise，可以轻松处理异步请求。</li>
+<li><strong>支持拦截器</strong>：axios支持拦截器，可以方便地处理请求和响应。</li>
+</ol>
+<p><strong>axios的使用方法：</strong></p>
+<ol>
+<li><strong>导入axios</strong>：使用import语句导入axios。</li>
+<li><strong>发送请求</strong>：使用axios发送请求，如axios.get()、axios.post()等。</li>
+<li><strong>处理响应</strong>：使用then()和catch()处理响应和错误。</li>
+</ol>
+<p>我通常在前端项目中使用axios与后端服务器进行交互，发送请求和获取数据。</p>
+<h4 id="extends-和-super-的区别"><a href="#extends-和-super-的区别" class="headerlink" title="extends 和 super 的区别"></a><strong><code>extends</code> 和 <code>super</code> 的区别</strong></h4><ol>
+<li><p><code>extends</code></p>
+<p>关键字：</p>
+<ul>
+<li>用于声明类的继承关系</li>
+<li>表明一个类继承自另一个类</li>
+<li>在类定义时使用</li>
+</ul>
+</li>
+<li><p><code>super</code></p>
+<p>关键字：</p>
+<ul>
+<li>用于访问和调用父类的构造函数或方法</li>
+<li>在子类构造函数或方法内部使用</li>
+</ul>
+</li>
+</ol>
+<h5 id="它们如何协同工作"><a href="#它们如何协同工作" class="headerlink" title="它们如何协同工作"></a>它们如何协同工作</h5><p>这两个关键字是配合使用的：</p>
+<ul>
+<li><strong><code>extends</code></strong> 建立了继承关系，但只是”宣告”了这种关系</li>
+<li><strong><code>super()</code></strong> 实际执行了父类的构造函数，初始化从父类继承的属性</li>
+</ul>
+<h5 id="是否两个都要用？"><a href="#是否两个都要用？" class="headerlink" title="是否两个都要用？"></a>是否两个都要用？</h5><ul>
+<li><strong><code>extends</code></strong>：如果要实现继承，必须使用</li>
+<li><strong><code>super()</code></strong>：只有当子类有自己的构造函数时才必须调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 extends 建立继承关系</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">speak</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span> makes a noise.`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, breed</span>) &#123;</span><br><span class="line">    <span class="comment">// 必须调用 super() 来初始化从父类继承的部分</span></span><br><span class="line">    <span class="variable language_">super</span>(name);</span><br><span class="line">    <span class="comment">// 然后才能添加子类自己的属性</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">breed</span> = breed;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">speak</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 可以用 super.方法名 来调用父类方法</span></span><br><span class="line">    <span class="variable language_">super</span>.<span class="title function_">speak</span>(); <span class="comment">// Rex makes a noise</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span> barks.`</span>); <span class="comment">// Rex barks.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dog = <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&#x27;Rex&#x27;</span>, <span class="string">&#x27;German Shepherd&#x27;</span>);</span><br><span class="line">dog.<span class="title function_">speak</span>();</span><br><span class="line"><span class="comment">// 输出:</span></span><br><span class="line"><span class="comment">// Rex makes a noise.</span></span><br><span class="line"><span class="comment">// Rex barks.</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="补充问题"><a href="#补充问题" class="headerlink" title="补充问题:"></a><strong>补充问题:</strong></h5><h4 id="16-获取HTML元素的方法有很多，下面是一些常见的方法："><a href="#16-获取HTML元素的方法有很多，下面是一些常见的方法：" class="headerlink" title="16,获取HTML元素的方法有很多，下面是一些常见的方法："></a><strong>16,获取HTML元素的方法有很多，下面是一些常见的方法：</strong></h4><ol>
+<li><strong>document.getElementById()</strong>: 通过元素的id获取元素。</li>
+<li><strong>document.getElementsByClassName()</strong>: 通过元素的类名获取元素，返回一个HTMLCollection。</li>
+<li><strong>document.getElementsByTagName()</strong>: 通过元素的标签名获取元素，返回一个HTMLCollection。</li>
+<li><strong>document.querySelector()</strong>: 通过CSS选择器获取元素，返回第一个匹配的元素。</li>
+<li><strong>document.querySelectorAll()</strong>: 通过CSS选择器获取元素，返回所有匹配的元素，返回一个NodeList。</li>
+<li><strong>document.getElementsByName()</strong>: 通过元素的name属性获取元素。</li>
+</ol>
+<h5 id="17-定位的层级是由哪个属性来控制"><a href="#17-定位的层级是由哪个属性来控制" class="headerlink" title="17.定位的层级是由哪个属性来控制"></a><strong>17.定位的层级是由哪个属性来控制</strong></h5><p>定位的层级是由 CSS 的 <strong>z-index</strong> 属性来控制的。</p>
+<p>这个属性决定了已定位元素（即 <code>position</code> 属性值不是 <code>static</code> 的元素，例如 <code>relative</code>, <code>absolute</code>, <code>fixed</code>, 或 <code>sticky</code>）在 Z 轴上的堆叠顺序。</p>
+<p><strong>重点：</strong></p>
+<ol>
+<li><strong>作用对象：</strong> <code>z-index</code> 只对设置了 <code>position</code> 属性值（非 <code>static</code>）的元素有效。</li>
+<li><strong>属性值：</strong> 可以是整数（正数、负数或 0）。</li>
+<li><strong>堆叠规则</strong>：<ul>
+<li><code>z-index</code> 值较大的元素会叠在值较小的元素之上。</li>
+<li>如果 <code>z-index</code> 值相同，则按照元素在 HTML 源代码中出现的顺序来堆叠，后出现的元素会叠在先出现的元素之上。</li>
+<li>父元素的 <code>z-index</code> 会影响其子元素的堆叠上下文。</li>
+</ul>
+</li>
+</ol>
+<p>简单来说，<code>z-index</code> 就像给元素分配了一个楼层号，楼层号越大的元素就越靠上显示。</p>
+<h5 id="18-前端两种get-post请求有什么区别"><a href="#18-前端两种get-post请求有什么区别" class="headerlink" title="18.前端两种get post请求有什么区别"></a><strong>18.前端两种get post请求有什么区别</strong></h5><p>前端开发中，GET 和 POST 是两种最常用的 HTTP 请求方法，它们在如何向服务器发送数据以及用途上有显著的区别。</p>
+<p>以下是它们的主要区别：</p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>GET</strong></th>
+<th><strong>POST</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>主要用途</strong></td>
+<td>从服务器<strong>获取</strong>（Retrieve）数据。</td>
+<td>向服务器<strong>提交</strong>（Submit）数据，请求服务器处理（如创建、更新）。</td>
+</tr>
+<tr>
+<td><strong>数据传输方式</strong></td>
+<td>将数据附加在 URL 的末尾，作为查询字符串（Query String），例如 <code>www.example.com/search?query=keyword</code></td>
+<td>将数据放在 HTTP 请求的<strong>请求体</strong>（Request Body）中。</td>
+</tr>
+<tr>
+<td><strong>数据可见性</strong></td>
+<td>参数<strong>可见</strong>，显示在浏览器地址栏、历史记录、服务器日志中。</td>
+<td>参数<strong>不可见</strong>于 URL，相对更安全，不会直接暴露在地址栏或历史记录中。</td>
+</tr>
+<tr>
+<td><strong>安全性</strong></td>
+<td><strong>不安全</strong>，不应用于传输敏感信息（如密码、私密数据）。</td>
+<td><strong>相对安全</strong>，适合传输敏感信息（但仍需 HTTPS 加密传输）。</td>
+</tr>
+<tr>
+<td><strong>数据长度限制</strong></td>
+<td><strong>有</strong>。URL 长度受浏览器和服务器限制（通常约 2KB）。</td>
+<td><strong>理论上无限制</strong>（服务器可能会配置限制），可以传输大量数据。</td>
+</tr>
+<tr>
+<td><strong>幂等性</strong></td>
+<td><strong>是幂等的</strong>（Idempotent）。多次执行相同的 GET 请求，结果应该相同（除非服务器资源自身发生变化）。</td>
+<td><strong>非幂等的</strong>。多次执行相同的 POST 请求，可能会产生不同的结果（例如，重复提交表单会创建多条记录）。</td>
+</tr>
+<tr>
+<td><strong>缓存</strong></td>
+<td>请求及其响应<strong>可以被缓存</strong>。</td>
+<td>请求及其响应默认<strong>不被缓存</strong>。</td>
+</tr>
+<tr>
+<td><strong>书签&#x2F;历史</strong></td>
+<td>可以被收藏为书签，保留在浏览器历史记录中。</td>
+<td>不能被收藏为书签，浏览器通常会警告用户是否重新提交 POST 请求。</td>
+</tr>
+</tbody></table>
+<p><strong>总结与前端应用场景:</strong></p>
+<ul>
+<li><strong>使用 GET 的场景:</strong><ul>
+<li>请求页面或资源（HTML, CSS, JS, 图片等）。</li>
+<li>获取数据列表（如文章列表、商品列表）。</li>
+<li>搜索操作（搜索词通常放在 URL 中方便分享和记录）。</li>
+<li>请求不会改变服务器状态的操作。</li>
+</ul>
+</li>
+<li><strong>使用 POST 的场景:</strong><ul>
+<li>提交表单数据（如用户注册、登录）。</li>
+<li>创建新的资源（如发布文章、添加商品）。</li>
+<li>更新现有资源。</li>
+<li>上传文件。</li>
+<li>传输敏感信息。</li>
+<li>发送的数据量较大时。</li>
+</ul>
+</li>
+</ul>
+<p><strong>简单来说，当你需要拿数据时，用 GET；当你需要给服务器数据去处理、去改变状态时，用 POST。</strong></p>
+<h5 id="19-REACT单页面前端-和-传统的HTML有什么区别"><a href="#19-REACT单页面前端-和-传统的HTML有什么区别" class="headerlink" title="19.REACT单页面前端 和 传统的HTML有什么区别"></a><strong>19.REACT单页面前端 和 传统的HTML有什么区别</strong></h5><p><strong>核心区别在于页面加载和导航方式：</strong></p>
+<ol>
+<li><p><strong>传统 HTML (MPA - 多页面应用):</strong></p>
+<ul>
+<li><strong>结构:</strong> 每个不同的页面或视图都是一个独立的 HTML 文件，存储在服务器上。</li>
+<li><strong>导航:</strong> 当用户点击链接或提交表单以导航到不同页面时，浏览器会向服务器发送一个<strong>全新的请求</strong>。服务器处理请求后，返回一个<strong>完整的、新的 HTML 页面</strong>给浏览器。</li>
+<li><strong>加载:</strong> 浏览器<strong>完全卸载</strong>旧页面，然后<strong>加载并渲染</strong>整个新页面。这通常会导致页面白屏或闪烁。</li>
+<li><strong>代表技术:</strong> 纯 HTML&#x2F;CSS&#x2F;JavaScript、jQuery、服务器端模板引擎（如 PHP、JSP、ASP.NET、Ruby on Rails、Django 等，它们为每个页面请求生成 HTML）。</li>
+</ul>
+</li>
+<li><p><strong>React 单页面应用 (SPA):</strong></p>
+<ul>
+<li><p><strong>结构:</strong> 应用通常只有一个<strong>主 HTML 文件</strong>（<code>index.html</code>）。这个 HTML 文件非常基础，主要包含一个空的 <code>&lt;div&gt;</code>（通常是 <code>&lt;div id=&quot;root&quot;&gt;</code>）和一个 <code>&lt;script&gt;</code> 标签来加载 React 应用的 JavaScript 包。</p>
+</li>
+<li><p><strong>导航:</strong> 首次加载时，浏览器下载主 HTML 文件和相关的 CSS&#x2F;JavaScript 包。当用户在应用内导航时（例如点击链接），<strong>页面不会完全重新加载</strong>。React (通常配合 React Router 等路由库) 会<strong>拦截</strong>这些导航事件。</p>
+</li>
+<li><p>加载:</p>
+<p>React 会动态地、在</p>
+<p>客户端</p>
+<p>（用户的浏览器中）使用 JavaScript 来：</p>
+<ul>
+<li>清除页面上需要改变的部分内容。</li>
+<li>根据新的”页面”或”视图”<strong>渲染</strong>对应的 React 组件。</li>
+<li>如果需要新数据，会通过 <strong>API 调用</strong>（如 Fetch API 或 Axios 发送 GET&#x2F;POST 请求）从服务器异步获取数据（通常是 JSON 格式），然后用这些数据更新视图。</li>
+<li>浏览器地址栏的 URL 会通过 History API 更新，以模拟真实页面的切换，支持前进&#x2F;后退操作。</li>
+</ul>
+</li>
+<li><p><strong>代表技术:</strong> React、Vue、Angular 等前端框架&#x2F;库，配合客户端路由库（React Router, Vue Router）和状态管理库（Redux, Zustand, Vuex）。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>主要区别总结表:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>传统 HTML (MPA)</strong></th>
+<th><strong>React SPA (单页面应用)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>页面加载</strong></td>
+<td>每次导航都<strong>整页重新加载</strong>（Full Page Reload）</td>
+<td><strong>仅初始加载一次</strong>HTML骨架，后续导航<strong>动态更新</strong>DOM</td>
+</tr>
+<tr>
+<td><strong>用户体验 (UX)</strong></td>
+<td>导航时可能感觉<strong>卡顿</strong>、有<strong>白屏&#x2F;闪烁</strong>；交互相对简单。</td>
+<td>导航<strong>流畅</strong>、<strong>快速</strong>，更接近原生桌面或移动应用体验；可实现复杂交互。</td>
+</tr>
+<tr>
+<td><strong>初始加载速度</strong></td>
+<td>单个页面通常<strong>较快</strong>，只加载当前页所需资源。</td>
+<td>可能<strong>较慢</strong>，需要加载框架、应用代码、可能还有初始数据。</td>
+</tr>
+<tr>
+<td><strong>后续导航速度</strong></td>
+<td>每次导航都需要重新加载，速度取决于网络和服务器响应。</td>
+<td><strong>非常快</strong>，只需获取少量数据（如果需要）并在客户端渲染。</td>
+</tr>
+<tr>
+<td><strong>服务器压力</strong></td>
+<td>服务器需要为每个页面请求渲染完整的 HTML。</td>
+<td>初始加载后，服务器主要提供<strong>数据 API</strong>，渲染压力在客户端。</td>
+</tr>
+<tr>
+<td><strong>路由 (Routing)</strong></td>
+<td>由<strong>服务器</strong>根据 URL 路径返回不同 HTML 文件。</td>
+<td>由<strong>客户端</strong> JavaScript 库（如 React Router）处理，更新视图和 URL。</td>
+</tr>
+<tr>
+<td><strong>状态管理</strong></td>
+<td>页面跳转通常会<strong>丢失</strong>前端状态（需借助后端 Session 或 LocalStorage）。</td>
+<td>可在客户端<strong>持续管理</strong>复杂应用状态（使用 React State, Context, Redux 等）。</td>
+</tr>
+<tr>
+<td><strong>开发复杂性</strong></td>
+<td>对于简单网站可能更直接；页面间共享逻辑&#x2F;状态可能复杂。</td>
+<td>需要掌握框架、组件化、状态管理、构建工具等，<strong>学习曲线较陡</strong>，但利于构建复杂应用。</td>
+</tr>
+<tr>
+<td><strong>SEO (搜索引擎优化)</strong></td>
+<td><strong>传统上更友好</strong>，每个页面有独立的 URL 和 HTML 内容。</td>
+<td><strong>需要额外处理</strong>（如服务器端渲染 SSR、静态站点生成 SSG）才能达到最佳 SEO 效果，因为初始 HTML 可能内容很少。现代搜索引擎对 JS 渲染支持已改进。</td>
+</tr>
+</tbody></table>
+<p><strong>总结:</strong></p>
+<ul>
+<li><strong>传统 MPA</strong> 更适合内容型网站、博客、或者不需要复杂交互的应用，开发相对简单，SEO 天然友好。</li>
+<li><strong>React SPA</strong> 更适合需要丰富交互、复杂功能、追求流畅用户体验的应用，如 Web 应用、管理后台、仪表盘等。虽然初始加载和 SEO 需要特别关注，但它提供了更好的开发结构、组件复用性和更优的后续导航体验。</li>
+</ul>
+<h5 id="20-单页面简单说一下原理和方法"><a href="#20-单页面简单说一下原理和方法" class="headerlink" title="20.单页面简单说一下原理和方法"></a><strong>20.单页面简单说一下原理和方法</strong></h5><p><strong>原理 (How it Works):</strong></p>
+<ol>
+<li><p><strong>只加载一次核心 HTML:</strong> 浏览器<strong>第一次</strong>访问 SPA 网站时，服务器会发送一个<strong>基本不变的 HTML 骨架文件</strong>（通常是 <code>index.html</code>），以及必需的 CSS 和 JavaScript 文件（包含框架&#x2F;库和应用逻辑）。</p>
+</li>
+<li><p><strong>后续交互靠 JavaScript:</strong> 之后用户的所有操作（如点击链接、切换视图）<strong>不会</strong>再向服务器请求新的 HTML 页面。</p>
+</li>
+<li><p>动态内容替换:</p>
+<p>JavaScript 会</p>
+<p>接管</p>
+<p>页面的渲染和导航。它会根据用户的操作：</p>
+<ul>
+<li><strong>更新浏览器地址栏 URL</strong> (但阻止浏览器发起新的页面请求)。</li>
+<li><strong>动态地修改</strong>当前 HTML 页面中的某一部分内容（DOM - Document Object Model），移除旧的视图内容，渲染新的视图内容。</li>
+<li>如果需要新的数据，JavaScript 会<strong>异步地</strong>向服务器 API 请求数据（通常是 JSON 格式），拿到数据后再更新视图。</li>
+</ul>
+</li>
+</ol>
+<p><strong>核心思想：</strong> 把传统多页面应用中<strong>服务器</strong>负责的“为每个页面生成 HTML”的任务，转移到了<strong>浏览器端</strong>（客户端），由 JavaScript 来动态生成和管理用户界面。整个应用感觉更像一个桌面程序或手机 App，因为它在同一个“页面”框架内运行，切换视图时响应更快、更流畅。</p>
+<p><strong>主要方法&#x2F;技术 (How it’s Done):</strong></p>
+<ol>
+<li><p>JavaScript 框架&#x2F;库:</p>
+<p>使用 React, Vue, Angular 等框架来构建用户界面。它们提供了：</p>
+<ul>
+<li><strong>组件化:</strong> 将 UI 拆分成可复用的组件，方便管理和更新。</li>
+<li><strong>状态管理:</strong> 维护应用的数据状态，当状态改变时自动更新 UI。</li>
+</ul>
+</li>
+<li><p>客户端路由 (Client-Side Routing):</p>
+<p>使用像 React Router (用于 React), Vue Router (用于 Vue) 这样的库来管理”页面”导航。它们能：</p>
+<ul>
+<li>监听 URL 的变化。</li>
+<li>根据 URL 路径，决定显示哪个组件（视图）。</li>
+<li>修改浏览器历史记录，让前进&#x2F;后退按钮能正常工作，并且 URL 可以被收藏。</li>
+</ul>
+</li>
+<li><p><strong>API 数据交互:</strong> 通过 JavaScript 的 <code>Workspace</code> API 或 <code>axios</code> 等库，与服务器端的 API 进行通信，获取或提交数据（通常使用 JSON 格式）。</p>
+</li>
+<li><p><strong>构建工具:</strong> 使用 Webpack, Vite, Parcel 等工具将所有的 JavaScript、CSS 和其他资源打包、优化，并处理兼容性问题。</p>
+</li>
+</ol>
+<h5 id="21-vue中的计算属性应用场景"><a href="#21-vue中的计算属性应用场景" class="headerlink" title="21.vue中的计算属性应用场景"></a><strong>21.vue中的计算属性应用场景</strong></h5><p><strong>计算属性的应用场景:</strong></p>
+<p>计算属性非常适合处理任何<strong>需要根据现有数据派生出新数据</strong>的场景，特别是当这个派生逻辑比较复杂或者依赖多个数据源时。其缓存特性可以显著优化性能。</p>
+<ol>
+<li><strong>数据格式化:</strong><ul>
+<li>根据时间戳计算出格式化的日期字符串（如 <code>YYYY-MM-DD</code>）。</li>
+<li>格式化货币（如 <code>&quot;$1,234.56&quot;</code>）。</li>
+<li>将多个数据片段组合成一个显示字符串（如上面例子中的 <code>fullName</code>）。</li>
+</ul>
+</li>
+<li><strong>列表的筛选和排序:</strong></li>
+</ol>
+<ul>
+<li>有一个包含所有用户的列表 (<code>allUsers</code>) 和一个搜索关键词 (<code>searchTerm</code>)，可以创建一个计算属性 <code>filteredUsers</code>，它根据 <code>searchTerm</code> 返回过滤后的用户列表。当 <code>allUsers</code> 或 <code>searchTerm</code> 改变时，<code>filteredUsers</code> 自动更新。</li>
+</ul>
+<ol start="3">
+<li><p><strong>基于状态的条件计算:</strong></p>
+<ul>
+<li>根据表单中多个输入字段的值，计算出一个 <code>isFormValid</code> 的布尔值。</li>
+<li>根据购物车中商品的总价，计算是否达到免运费标准。</li>
+<li>根据用户的权限级别，计算出他是否能看到某个按钮 (<code>canEdit</code>)。</li>
+</ul>
+</li>
+<li><p><strong>模板逻辑简化:</strong></p>
+<ul>
+<li>当模板中的某个表达式比较复杂时（例如包含多个三元运算符或逻辑判断），可以将其提取到计算属性中，使模板更简洁、易读。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;p :class=&quot;user.points &gt; 100 ? &#x27;vip&#x27; : user.points &gt; 50 ? &#x27;preferred&#x27; : &#x27;normal&#x27;&quot;&gt;</span><br><span class="line">  User Status</span><br><span class="line">&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">// ... user data</span><br><span class="line">const userStatusClass = computed(() =&gt; &#123;</span><br><span class="line">  if (user.value.points &gt; 100) return &#x27;vip&#x27;;</span><br><span class="line">  if (user.value.points &gt; 50) return &#x27;preferred&#x27;;</span><br><span class="line">  return &#x27;normal&#x27;;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p :class=&quot;userStatusClass&quot;&gt;User Status&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>当你需要根据响应式数据派生出新值，并且希望：</p>
+<ul>
+<li>这个派生过程开销较大，不希望频繁执行。</li>
+<li>这个派生值会被多次使用。</li>
+<li>保持模板简洁易懂。</li>
+</ul>
+<p>那么，计算属性就是理想的选择。它利用缓存机制优化性能，并让代码更具声明性和可维护性。如果只是需要一个在每次渲染时都重新执行的逻辑（比如事件处理函数），或者不需要缓存，那么应该使用方法（Methods）。</p>
+<h5 id="22-同级组件之间的通信都有哪些方式"><a href="#22-同级组件之间的通信都有哪些方式" class="headerlink" title="22.同级组件之间的通信都有哪些方式?"></a><strong>22.同级组件之间的通信都有哪些方式?</strong></h5><ol>
+<li><strong>通过共同的父组件中转 (Lifting State Up)</strong><ul>
+<li><strong>原理:</strong> 这是最常见和推荐的方式（尤其对于简单场景）。利用”Props down, Events up”的原则。</li>
+<li><strong>优点:</strong> 遵循 Vue 的单向数据流，逻辑清晰，易于理解和追踪。</li>
+<li><strong>缺点:</strong> 如果组件层级很深，或者需要通信的同级组件很多，会导致父组件承担过多的事件监听和 props 传递，代码会变得冗余（可能产生 “Prop Drilling” 问题）。</li>
+</ul>
+</li>
+<li><strong>事件总线 (Event Bus) - (需谨慎使用)</strong><ul>
+<li><strong>原理:</strong> 创建一个全局的 Vue 实例或使用一个独立的事件发布&#x2F;订阅库（如 <code>mitt</code> 或 <code>tiny-emitter</code>），作为中央事件总线。所有组件都可以访问这个总线。</li>
+<li>流程:<ul>
+<li>组件 A 想要发送消息时，调用事件总线的 <code>emit</code> 方法发布一个事件。</li>
+<li>组件 B 在其生命周期钩子（如 <code>mounted</code>）中，调用事件总线的 <code>on</code> 方法订阅该事件。</li>
+<li>当事件被发布时，组件 B 的回调函数会被执行。</li>
+<li><strong>重要:</strong> 组件 B 在销毁前（如 <code>unmounted</code> 或 <code>beforeUnmount</code> 钩子）必须调用事件总线的 <code>off</code> 方法取消订阅，以防止内存泄漏。</li>
+</ul>
+</li>
+<li><strong>优点:</strong> 可以实现任意组件间的通信，完全解耦。</li>
+<li><strong>缺点:</strong> 数据流向不清晰，难以追踪事件的来源和影响，项目变大后极易导致混乱和难以调试。在现代 Vue 应用中，通常<strong>不推荐</strong>使用事件总线来管理复杂状态，更推荐状态管理库。</li>
+</ul>
+</li>
+<li><strong>状态管理库 (Vuex &#x2F; Pinia)</strong><ul>
+<li><strong>原理:</strong> 这是处理复杂应用中组件间共享状态（包括同级组件通信）的<strong>官方推荐和最佳实践</strong>。Vuex (Vue 2&#x2F;3) 或 Pinia (Vue 3 推荐) 提供一个集中的 Store 来存储应用的所有共享状态。</li>
+<li><strong>优点:</strong> 集中管理状态，数据流清晰可预测，易于调试（有 DevTools 支持），适合中大型复杂应用。</li>
+<li><strong>缺点:</strong> 需要引入额外的库，对于非常简单的应用可能有点“重”。(Pinia 比 Vuex 更轻量、更易用)。</li>
+</ul>
+</li>
+<li><strong>Provide &#x2F; Inject (主要用于祖先与后代通信)</strong><ul>
+<li><strong>优点:</strong> 可以避免深层次的 Props Drilling。</li>
+<li><strong>缺点:</strong> 数据来源不如 Props 明确，可能使得追踪数据源稍微困难一些。</li>
+</ul>
+</li>
+</ol>
+<h5 id="23-闭包的原理和优缺点-使用场景"><a href="#23-闭包的原理和优缺点-使用场景" class="headerlink" title="23.闭包的原理和优缺点,使用场景:"></a><strong>23.闭包的原理和优缺点,使用场景:</strong></h5><p>简单来说，<strong>闭包就是 JavaScript 中的一个函数，它能够‘记住’并且可以访问它被创建时所在的词法作用域，即使这个函数在它原本的作用域之外被调用执行了。</strong> 您可以把它理解成是这个<strong>函数本身</strong>以及它能访问的**周边环境（词法作用域链）**的一个组合体。</p>
+<p>这之所以能实现，主要是因为 JavaScript 的词法作用域规则。当您在一个函数（外部函数）内部定义了另一个函数（内部函数）时，这个内部函数天生就能访问外部函数的所有变量。关键在于，如果您把这个内部函数返回出去，或者把它传递给其他地方（比如作为回调函数），那么它就会一直<strong>保持着对外部函数作用域里那些它需要用到的变量的引用</strong>。这样一来，即使外部函数已经执行结束了，那些被内部函数引用的变量也不会被垃圾回收机制清理掉，因为内部函数这个“活口”还需要它们，这些变量就被‘封闭’起来，跟着内部函数走了。</p>
+<p>一个很经典的例子就是<strong>计数器</strong>。我们可以写一个外部函数 <code>createCounter</code>，里面定义一个局部变量 <code>count</code> 并初始化为 0，然后返回一个内部函数 <code>increment</code>。这个 <code>increment</code> 函数每次执行的时候就让那个 <code>count</code> 加一并打印出来。每次您调用 <code>createCounter</code> 都会得到一个新的、独立的 <code>increment</code> 函数实例，并且得益于闭包，每个 <code>increment</code> 函数都‘记住’了它自己那份独立的 <code>count</code> 变量。</p>
+<p>这种机制带来了几个非常重要的<strong>优点</strong>：</p>
+<ol>
+<li><strong>数据封装和实现私有变量</strong>：这可能是最有用的一个特性。您可以把一些不想被外界直接访问的状态（变量）封装在外部函数的作用域里，只通过闭包返回的特定函数（像 getter 或 setter）来操作它们，从而实现数据的隐藏和保护，有点像面向对象里的私有成员。这是实现早期模块化开发的基础。</li>
+<li><strong>维持函数的状态</strong>：闭包能让函数在多次调用之间保持某个状态，而不需要依赖全局变量。就像上面说的计数器，或者用来创建带有特定配置的函数（函数工厂）。</li>
+<li><strong>在异步回调中保持上下文</strong>：在 <code>setTimeout</code>、事件监听器或者网络请求的回调函数里，我们经常需要访问定义它们时所在环境的某些变量，闭包天然地解决了这个问题，让回调函数能正确访问到它需要的“上下文”信息。</li>
+</ol>
+<p>当然，闭包也有需要注意的<strong>缺点</strong>，最主要的就是<strong>可能导致内存消耗增加甚至内存泄漏</strong>。因为闭包会让外部函数的作用域对象持续存在于内存中，如果这个作用域中的变量引用了很大的数据结构，或者在不经意间（比如在循环里错误地创建了闭包）产生了大量长期存活的闭包，就可能造成内存无法释放的问题。所以在使用时需要留意这一点，确保不再需要的闭包能够被正确地回收。</p>
+<p>至于<strong>使用场景</strong>，那就非常广泛了：</p>
+<ul>
+<li>实现<strong>模块化</strong>，封装私有状态和方法。</li>
+<li>创建**防抖（Debounce）和节流（Throttle）**这样的高阶函数。</li>
+<li>各种需要保持状态的<strong>回调函数</strong>。</li>
+<li>实现**函数柯里化（Currying）<strong>和</strong>部分应用（Partial Application）**等函数式编程技巧。</li>
+<li>在很多<strong>框架和库的源码</strong>中，闭包也是实现其内部机制的重要手段。</li>
+</ul>
+<h5 id="24-CSS常见的垂直水平居中方法有以下几种："><a href="#24-CSS常见的垂直水平居中方法有以下几种：" class="headerlink" title="24.CSS常见的垂直水平居中方法有以下几种："></a><strong>24.CSS常见的垂直水平居中方法有以下几种：</strong></h5><p><strong>1.Flexbox 布局</strong></p>
+<p>Flexbox 布局是现代 CSS 布局中非常强大和灵活的一种方式，可以轻松实现垂直和水平的居中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center; <span class="comment">/* 水平居中 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center; <span class="comment">/* 垂直居中 */</span></span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>; <span class="comment">/* 容器高度 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.Grid 布局</strong></p>
+<p>Grid 布局是另一种现代 CSS 布局方式，也可以轻松实现垂直和水平的居中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">place-items</span>: center; <span class="comment">/* 垂直和水平居中 */</span></span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>; <span class="comment">/* 容器高度 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2025 <a href="/">DayBreak</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  
+<script src="/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+
+  
+<script src="/js/helper.js"></script>
+
+  
+<script src="/js/_third-party/gitment.js"></script>
+
+</body>
+</html>

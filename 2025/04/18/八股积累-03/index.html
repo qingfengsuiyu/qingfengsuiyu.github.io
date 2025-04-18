@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>八股积累-03 | DayBreak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 根节点的font-size设置了一个不好计算的值，不能修改。之后写em的时候不方便怎么解决？ 面试官您好，这是一个实践中可能遇到的问题。如果根节点（html）的 font-size 是一个不方便计算的值（比如 13.8px），并且我们不能修改它，那么直接使用 em 单位确实会比较困难，因为 em 是相对于父元素的 font-size 计算的，层级嵌套深了之后，计算会变得非常复杂和不直观。 面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="八股积累-03">
+<meta property="og:url" content="https://qingfengsuiyu.github.io/2025/04/18/%E5%85%AB%E8%82%A1%E7%A7%AF%E7%B4%AF-03/index.html">
+<meta property="og:site_name" content="DayBreak">
+<meta property="og:description" content="1. 根节点的font-size设置了一个不好计算的值，不能修改。之后写em的时候不方便怎么解决？ 面试官您好，这是一个实践中可能遇到的问题。如果根节点（html）的 font-size 是一个不方便计算的值（比如 13.8px），并且我们不能修改它，那么直接使用 em 单位确实会比较困难，因为 em 是相对于父元素的 font-size 计算的，层级嵌套深了之后，计算会变得非常复杂和不直观。 面">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-18T08:51:47.000Z">
+<meta property="article:modified_time" content="2025-04-18T08:52:18.391Z">
+<meta property="article:author" content="Xiaoyi Hao">
+<meta property="article:tag" content="八股文">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="DayBreak" type="application/atom+xml">
+  
+  
+  
+  
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0.css">
+
+  
+<link rel="stylesheet" href="/lib/fancybox/dist/jquery.fancybox.min.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/" title="DayBreak">DayBreak</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Search" onfocus="if (value =='Search'){value =''}" onblur="if (value ==''){value='Search'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/">Home</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/archives">Archives</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix"><article class="post-detail">
+  <h1 class="post-title"><a href="/">八股积累-03</a></h1>
+  <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Author Xiaoyi Hao</li>
+  <li><i class="fa fa-calendar"></i> Date Apr 18</li>
+  <li><i class="fa fa-folder"></i> Categories
+  
+    no_categories
+  
+  </li>
+</ul>
+  <div class="post-content">
+      
+      <p><strong>1. 根节点的font-size设置了一个不好计算的值，不能修改。之后写em的时候不方便怎么解决？</strong></p>
+<p>面试官您好，这是一个实践中可能遇到的问题。如果根节点（<code>html</code>）的 <code>font-size</code> 是一个不方便计算的值（比如 <code>13.8px</code>），并且我们不能修改它，那么直接使用 <code>em</code> 单位确实会比较困难，因为 <code>em</code> 是相对于父元素的 <code>font-size</code> 计算的，层级嵌套深了之后，计算会变得非常复杂和不直观。</p>
+<p>面对这种情况，我推荐使用 <strong><code>rem</code> (root em) 单位</strong>。</p>
+<ul>
+<li><strong>原因：</strong> <code>rem</code> 单位始终是相对于根元素（<code>html</code>）的 <code>font-size</code> 来计算的，无论元素嵌套多深。即使根元素的 <code>font-size</code> 是 <code>13.8px</code>，那么 <code>1rem</code> 就固定等于 <code>13.8px</code>，<code>2rem</code> 就等于 <code>27.6px</code>。</li>
+<li><strong>优势：</strong><ul>
+<li><strong>计算清晰：</strong> 所有使用 <code>rem</code> 的元素的尺寸都只与根元素的 <code>font-size</code> 相关，避免了 <code>em</code> 单位层层继承带来的计算复杂性。</li>
+<li><strong>全局缩放：</strong> 虽然我们不能修改初始的 <code>font-size</code>，但如果未来有需求要进行全局字体或布局缩放（例如通过媒体查询调整根 <code>font-size</code>），所有使用 <code>rem</code> 的元素都会等比例缩放，维护起来更方便。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 宏任务和微任务了解吗？</strong></p>
+<p>是的，面试官，我了解宏任务（Macrotask）和微任务（Microtask）。它们是 JavaScript 异步执行模型——事件循环（Event Loop）中的重要概念。</p>
+<ul>
+<li><strong>事件循环 (Event Loop):</strong> JavaScript 是单线程的，为了处理异步操作（如定时器、网络请求、DOM事件等）而不会阻塞主线程，引入了事件循环机制。它不断检查调用栈（Call Stack）是否为空，如果为空，就去任务队列（Task Queue）中取任务来执行。</li>
+<li><strong>宏任务 (Macrotask):</strong><ul>
+<li>代表一个独立的、比较大的工作单元。</li>
+<li>每次事件循环只会从宏任务队列中取出一个宏任务来执行。</li>
+<li>执行完一个宏任务后，可能会进行页面的重新渲染（Rendering），然后才开始下一次事件循环Tick。</li>
+<li>常见的宏任务包括：<ul>
+<li><code>script</code> (整体代码块)</li>
+<li><code>setTimeout</code>, <code>setInterval</code></li>
+<li><code>setImmediate</code> (Node.js 环境)</li>
+<li>I&#x2F;O 操作（文件读写、网络请求等的回调）</li>
+<li>UI 渲染（浏览器环境）</li>
+<li>用户交互事件（如 click, mousemove 等的回调）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>微任务 (Microtask):</strong><ul>
+<li>代表一个需要在当前任务执行后立即执行的小任务，通常用于处理当前任务的后续工作，比如 Promise 的状态敲定。</li>
+<li>微任务队列拥有更高的优先级。当一个宏任务执行完毕后，<strong>在下一个宏任务开始之前（并且通常在 UI 渲染之前）</strong>，事件循环会检查微任务队列。如果微任务队列不为空，它会<strong>一次性执行完所有</strong>的微任务，直到微任务队列清空。如果在执行微任务的过程中又产生了新的微任务，这些新的微任务也会被添加到队列末尾并在当前轮次被执行。</li>
+<li>常见的微任务包括：<ul>
+<li><code>Promise.then()</code>, <code>Promise.catch()</code>, <code>Promise.finally()</code> 的回调</li>
+<li><code>MutationObserver</code> 的回调</li>
+<li><code>queueMicrotask()</code></li>
+<li><code>process.nextTick</code> (Node.js 环境，优先级甚至高于其他微任务)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>执行顺序总结：</strong><ol>
+<li>执行同步代码（一个宏任务）。</li>
+<li>执行过程中遇到的同步代码立即执行。</li>
+<li>遇到的宏任务放入宏任务队列。</li>
+<li>遇到的微任务放入微任务队列。</li>
+<li>当前宏任务执行完毕，检查微任务队列。</li>
+<li>执行并清空微任务队列（过程中新产生的微任务也在此轮执行）。</li>
+<li>（可能进行 UI 渲染 - 浏览器决定）</li>
+<li>从宏任务队列中取下一个宏任务，重复步骤 2-7。</li>
+</ol>
+</li>
+</ul>
+<p><strong>5. 反向输出数字，例如 123 输出 321（把数字转换成字符串做，面试官说只用数字来做，就求余取整）</strong></p>
+<p><strong>思路：</strong></p>
+<p>核心思想是利用取余运算符 (<code>%</code>) 获取数字的最后一位，然后利用整除（在 JavaScript 中是 <code>Math.floor(number / 10)</code>）去掉数字的最后一位。我们不断重复这个过程，同时构建反转后的数字。</p>
+<p><strong>算法步骤：</strong></p>
+<ol>
+<li>初始化一个变量 <code>reversedNumber</code> 为 0，用来存放反转后的结果。</li>
+<li>使用一个循环，条件是原数字 <code>originalNumber</code> 不为 0（或者大于 0，如果只处理正数）。</li>
+<li>在循环内部： a.  通过 <code>originalNumber % 10</code> 得到 <code>originalNumber</code> 的最后一位数字 (<code>digit</code>)。 b.  将 <code>reversedNumber</code> 乘以 10（相当于将其所有位数向左移动一位，为新来的个位数腾出位置），然后加上刚刚得到的 <code>digit</code>。更新 <code>reversedNumber = reversedNumber * 10 + digit;</code>。 c.  通过 <code>Math.floor(originalNumber / 10)</code> (或者在某些语言中直接用整数除法) 去掉 <code>originalNumber</code> 的最后一位，更新 <code>originalNumber</code>。</li>
+<li>循环结束后，<code>reversedNumber</code> 就包含了反转后的数字。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">reverseInteger</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> reversedNumber = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> sign = num &lt; <span class="number">0</span> ? -<span class="number">1</span> : <span class="number">1</span>; <span class="comment">// 处理负数的情况</span></span><br><span class="line">  <span class="keyword">let</span> absoluteNum = <span class="title class_">Math</span>.<span class="title function_">abs</span>(num); <span class="comment">// 先处理绝对值</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (absoluteNum &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> digit = absoluteNum % <span class="number">10</span>; <span class="comment">// 取最后一位</span></span><br><span class="line">    reversedNumber = reversedNumber * <span class="number">10</span> + digit; <span class="comment">// 追加到结果的末尾</span></span><br><span class="line">    absoluteNum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(absoluteNum / <span class="number">10</span>); <span class="comment">// 去掉最后一位</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> reversedNumber * sign; <span class="comment">// 恢复符号</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">reverseInteger</span>(<span class="number">123</span>));    <span class="comment">// 输出: 321</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">reverseInteger</span>(-<span class="number">456</span>));   <span class="comment">// 输出: -654</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">reverseInteger</span>(<span class="number">120</span>));    <span class="comment">// 输出: 21 (前导零会自然消失)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">reverseInteger</span>(<span class="number">0</span>));      <span class="comment">// 输出: 0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>6.什么是跨域？</strong></p>
+<p>跨域是指浏览器限制脚本（JavaScript）发起跨源 HTTP 请求的一种安全策略。所谓“跨源”，指的是请求的目标 URL 与当前页面所在的 URL 的<strong>协议 (protocol)、域名 (domain)、端口 (port)</strong> 三者之中有任意一个不同。例如，<code>http://example.com</code> 访问 <code>https://example.com</code>（协议不同）、<code>http://www.example.com</code> 访问 <code>http://api.example.com</code>（域名不同）、<code>http://example.com:80</code> 访问 <code>http://example.com:8080</code>（端口不同），这些都属于跨域。</p>
+<p><strong>为什么会有跨域限制（同源策略 Same-Origin Policy, SOP）？</strong></p>
+<p>同源策略是浏览器最核心、最基本的安全功能。它的主要目的是<strong>防止恶意网站读取或篡改另一个源的文档数据和用户会话信息</strong>。如果没有同源策略，一个恶意网站（比如 <code>http://evil.com</code>）就可以轻易地用 JavaScript 向你的网上银行（比如 <code>https://mybank.com</code>）发送请求，并在用户不知情的情况下执行操作（比如转账），或者读取你登录银行后的敏感信息。同源策略限制了这种潜在的攻击，保护了用户数据的安全性和网站的完整性。</p>
+<p><strong>常见的解决跨域问题的方案：</strong></p>
+<ol>
+<li><strong>CORS (Cross-Origin Resource Sharing, 跨源资源共享):</strong><ul>
+<li>这是目前<strong>最主流、最标准</strong>的解决方案。它允许服务器通过设置特定的 HTTP 响应头（如 <code>Access-Control-Allow-Origin</code>, <code>Access-Control-Allow-Methods</code>, <code>Access-Control-Allow-Headers</code> 等）来声明哪些源、哪些方法、哪些头部是被允许访问其资源的。</li>
+<li>浏览器在检测到跨域请求时，会先发送一个“预检”请求（OPTIONS 方法，针对非简单请求），询问服务器是否允许该跨域请求。服务器响应允许后，浏览器才会发送实际的请求。</li>
+<li>优点：功能强大、灵活、安全，支持各种 HTTP 方法和自定义头部。</li>
+<li>缺点：需要服务器端配合进行配置。</li>
+</ul>
+</li>
+<li><strong>JSONP (JSON with Padding):</strong><ul>
+<li>这是一种比较古老的、利用 <code>&lt;script&gt;</code> 标签不受同源策略限制的“hack”方案。</li>
+<li>原理：前端动态创建一个 <code>&lt;script&gt;</code> 标签，其 <code>src</code> 指向后端提供的接口 URL，并在 URL 参数中带上一个回调函数名（如 <code>callback=handleResponse</code>）。服务器接收到请求后，不再返回纯 JSON 数据，而是返回一段 JavaScript 代码，这段代码会调用前端指定的回调函数，并将 JSON 数据作为参数传入 (<code>handleResponse(&#123;...data...&#125;);</code>)。</li>
+<li>优点：兼容性好（老浏览器也支持），简单易用。</li>
+<li>缺点：<ul>
+<li><strong>只支持 GET 请求</strong>。</li>
+<li><strong>安全性较低</strong>，容易遭受 XSS 攻击，因为服务器返回的是可执行代码。</li>
+<li>请求失败时（如网络错误）不易捕获和处理。</li>
+</ul>
+</li>
+<li>现在已逐渐被 CORS 取代。</li>
+</ul>
+</li>
+<li><strong>代理 (Proxy):</strong><ul>
+<li>通过在<strong>同源</strong>的服务器上设置一个代理接口，由这个代理接口去请求目标跨域服务器的资源，然后再将结果返回给前端。前端与代理服务器之间是同源的，代理服务器与目标服务器之间（服务器间请求）不受浏览器同源策略限制。</li>
+<li><strong>正向代理:</strong> 代理客户端，前端配置代理服务器访问外部资源。（不太用于解决前端跨域问题，更多用于网络访问控制）</li>
+<li><strong>反向代理 (Nginx, Apache等):</strong> 代理服务器端。前端请求同源的 Nginx 服务器上的某个路径，Nginx 内部配置将该请求转发到实际的跨域 API 服务器，并将响应返回给前端。这是开发和部署中非常常用的方式。</li>
+<li>优点：前端无需修改代码（像访问同源接口一样），安全性较好，可以集成缓存、负载均衡等功能。</li>
+<li>缺点：需要额外部署和配置代理服务器。</li>
+</ul>
+</li>
+<li><strong><code>postMessage</code> API:</strong><ul>
+<li>主要用于<strong>窗口之间</strong>（如 <code>iframe</code> 与父窗口、<code>window.open</code> 打开的窗口与源窗口）的安全跨源通信。</li>
+<li>一个窗口可以通过 <code>otherWindow.postMessage(message, targetOrigin)</code> 向另一个窗口发送消息，接收方通过监听 <code>message</code> 事件 (<code>window.addEventListener(&#39;message&#39;, receiveMessage);</code>) 来接收。发送时可以指定 <code>targetOrigin</code>，确保消息只发送给预期的源，接收方也可以验证 <code>event.origin</code> 来确保消息来源可信。</li>
+<li>优点：安全、标准，专门用于窗口间通信。</li>
+<li>缺点：仅适用于窗口间通信场景。</li>
+</ul>
+</li>
+<li><strong>WebSocket:</strong><ul>
+<li>WebSocket 协议本身<strong>不受同源策略限制</strong>，因为它不是 HTTP 协议。一旦 WebSocket 连接建立，客户端和服务器就可以双向、实时地传输数据，不受域名、协议、端口的影响。</li>
+<li>服务器端可以在握手阶段验证请求的来源 (<code>Origin</code> 头部)。</li>
+<li>优点：实现双向实时通信，不受跨域限制。</li>
+<li>缺点：需要服务器端支持 WebSocket 协议，适用于实时性要求高的场景。</li>
+</ul>
+</li>
+</ol>
+<p>选择哪种方案取决于具体的应用场景、技术栈以及对安全性和兼容性的要求。目前 CORS 和反向代理是最常用和推荐的方式。</p>
+<p><strong>7.你提到了正向代理和反向代理。请明确区分一下这两者，它们分别解决了什么问题？</strong></p>
+<p><strong>我:</strong> 好的，面试官。正向代理和反向代理是两种不同的代理模式，它们代理的对象和解决的问题是不同的。您的笔记中提到的“都是正向代理”是不准确的，而后面的定义“正向代理：代理的是客户端，隐藏客户端，反向代理：代理的是服务器，隐藏服务器”是正确的。</p>
+<p><strong>1. 正向代理 (Forward Proxy):</strong></p>
+<ul>
+<li><strong>代理对象:</strong> 客户端 (Client)。它工作在客户端和目标服务器 (Origin Server) 之间。</li>
+<li><strong>工作方式:</strong> 客户端（比如用户的浏览器）明确配置了代理服务器的地址。所有出站的网络请求都先发送给正向代理服务器，由代理服务器<strong>代替客户端</strong>去访问目标服务器，并将获取到的响应返回给客户端。</li>
+<li>特点:<ul>
+<li><strong>隐藏客户端:</strong> 对于目标服务器来说，它看到的是代理服务器的 IP 地址，而不是实际客户端的 IP 地址。</li>
+<li><strong>客户端知情:</strong> 客户端需要知道代理服务器的存在并进行配置。</li>
+</ul>
+</li>
+<li>解决的问题&#x2F;用途:<ul>
+<li><strong>访问控制&#x2F;防火墙:</strong> 公司或组织内部可以通过正向代理限制员工访问特定网站。</li>
+<li><strong>绕过访问限制:</strong> 用户可以通过位于不同地理位置或网络环境的正向代理来访问被本地网络限制的资源（俗称“科学上网”）。</li>
+<li><strong>缓存:</strong> 代理服务器可以缓存目标服务器的响应，加速对相同资源的访问。</li>
+<li><strong>日志记录&#x2F;审计:</strong> 记录客户端的网络访问行为。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 反向代理 (Reverse Proxy):</strong></p>
+<ul>
+<li><strong>代理对象:</strong> 服务器 (Server)。它工作在客户端和源服务器集群之间。</li>
+<li><strong>工作方式:</strong> 客户端直接访问的是反向代理服务器的地址（通常是公开的域名），客户端<strong>并不知道</strong>实际处理请求的后端服务器是哪台。反向代理服务器接收到请求后，根据一定的规则（如 URL 路径、负载均衡策略等）将请求<strong>转发给内部网络中的一个或多个源服务器</strong>进行处理，并将源服务器的响应返回给客户端。</li>
+<li>特点:<ul>
+<li><strong>隐藏服务器:</strong> 对于客户端来说，它只与反向代理服务器交互，不知道后端真实服务器的 IP 地址、数量和架构。</li>
+<li><strong>客户端不知情:</strong> 客户端认为它直接访问的就是目标服务。</li>
+</ul>
+</li>
+<li>解决的问题&#x2F;用途:<ul>
+<li><strong>负载均衡 (Load Balancing):</strong> 将请求分发到多个后端服务器，提高服务的并发处理能力和可用性。</li>
+<li><strong>安全防护:</strong> 作为应用防火墙 (WAF)，抵御常见的网络攻击（如 DDoS、SQL注入），隐藏后端服务器细节。</li>
+<li><strong>SSL 加密&#x2F;解密 (SSL Offloading):</strong> 统一处理 HTTPS 请求的加密解密，减轻后端服务器的负担。</li>
+<li><strong>缓存静态内容:</strong> 缓存后端服务器的响应，减少对后端服务器的请求压力，加快响应速度。</li>
+<li><strong>请求路由&#x2F;API 网关:</strong> 根据请求路径或其他条件将请求转发到不同的后端服务或微服务。</li>
+<li><strong>解决跨域问题:</strong> 如前面提到的，可以将前端部署在域名 A，API 服务器部署在域名 B，通过在域名 A 上设置反向代理，将 <code>/api</code> 路径的请求转发到域名 B，对前端来说就像是同源请求。</li>
+</ul>
+</li>
+</ul>
+<p><strong>总结:</strong></p>
+<ul>
+<li><strong>正向代理</strong>是“替”客户端去访问服务器，隐藏了客户端。</li>
+<li><strong>反向代理</strong>是“替”服务器来接收客户端的请求，隐藏了服务器。</li>
+</ul>
+<p>它们在网络架构中扮演不同的角色，解决不同的问题。在 Web 开发中，我们常使用 Nginx、Apache 等作为反向代理来实现负载均衡、安全防护和解决跨域等问题。</p>
+<p><strong>8.总结一下 TypeScript 相较于 JavaScript 的主要区别和优点吗？</strong></p>
+<p><strong>我:</strong> 当然可以。TypeScript (TS) 是 JavaScript (JS) 的一个<strong>超集 (Superset)</strong>，它在 JavaScript 的基础上增加了<strong>静态类型系统</strong>和其他一些特性。它们的主要区别和 TS 的优点可以总结如下：</p>
+<p><strong>主要区别:</strong></p>
+<ol>
+<li><p><strong>类型系统:</strong></p>
+<ul>
+<li><strong>JS:</strong> 动态类型。变量的类型在运行时确定，可以在运行时改变。类型错误（如将字符串当数字用）只有在代码执行到那一行时才会被发现。</li>
+<li><strong>TS:</strong> 静态类型。可以在编码阶段为变量、函数参数、返回值等显式指定类型。类型检查在<strong>编译阶段</strong>进行。虽然 TS 代码最终会编译成 JS，但在开发过程中就能发现类型错误。</li>
+</ul>
+</li>
+<li><p><strong>编译:</strong></p>
+<ul>
+<li><strong>JS:</strong> 通常直接在浏览器或 Node.js 环境中解释执行（虽然现代 JS 引擎也有 JIT 编译，但这里指的是开发者通常的工作流）。</li>
+<li><strong>TS:</strong> <strong>必须</strong>先通过 TypeScript 编译器 (<code>tsc</code>) 编译成 JavaScript 代码，然后才能在浏览器或 Node.js 环境中运行。</li>
+</ul>
+</li>
+<li><p><strong>语言特性:</strong></p>
+<ul>
+<li><p><strong>TS 包含 JS:</strong> 所有有效的 JavaScript 代码也是有效的 TypeScript 代码。</p>
+</li>
+<li><p>TS 扩展 JS:</p>
+<p>TS 增加了许多 JS 没有（或尚未正式标准化）的特性，主要围绕类型系统：</p>
+<ul>
+<li><strong>类型注解 (Type Annotations):</strong> 如 <code>let name: string;</code></li>
+<li><strong>接口 (Interfaces):</strong> 定义对象的结构契约。</li>
+<li><strong>类型别名 (Type Aliases):</strong> 使用 <code>type</code> 关键字创建自定义类型。</li>
+<li><strong>枚举 (Enums):</strong> 定义一组命名的常量。</li>
+<li><strong>泛型 (Generics):</strong> 编写可重用的、支持多种类型的代码。</li>
+<li><strong>元组 (Tuples):</strong> 定义固定长度和固定类型顺序的数组。</li>
+<li><strong>联合类型 (Union Types) &#x2F; 交叉类型 (Intersection Types):</strong> 组合多种类型。</li>
+<li><strong>访问修饰符 (Access Modifiers):</strong> 如 <code>public</code>, <code>private</code>, <code>protected</code> 用于类成员（编译时检查）。</li>
+<li><strong>可选类型 (?) &#x2F; 只读属性 (readonly):</strong> 更精确地定义属性。</li>
+<li><strong>非空断言 (!):</strong> 告诉编译器某个值不会是 <code>null</code> 或 <code>undefined</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>TypeScript 的主要优点:</strong></p>
+<ol>
+<li><strong>静态类型检查，错误早期发现:</strong> 这是 TS 最核心的优势。能够在<strong>编译阶段</strong>就捕获大量的类型相关错误（如拼写错误、类型不匹配、<code>null</code> 或 <code>undefined</code> 引用等），而不是等到运行时才暴露。这大大减少了线上 Bug，缩短了调试时间。</li>
+<li>代码可读性和可维护性增强:<ul>
+<li>类型注解本身就是一种<strong>代码即文档</strong>，清晰地表明了数据结构和函数契约，使得代码更容易理解。</li>
+<li>在大型项目或团队协作中，类型系统提供了强约束，有助于保持代码风格一致，降低维护成本。</li>
+<li>重构代码（如修改函数签名、重命名属性）时更加安全可靠，编译器会帮助检查所有受影响的地方。</li>
+</ul>
+</li>
+<li>更好的开发体验和工具支持:<ul>
+<li>强大的 <strong>IDE 支持</strong>（如 VS Code）：基于类型信息，IDE 可以提供更精确的自动补全、智能提示 (IntelliSense)、代码导航和自动重构功能。</li>
+<li>这极大地提高了开发效率和编码体验。</li>
+</ul>
+</li>
+<li>更好的代码组织和架构:<ul>
+<li>接口、泛型、模块等特性有助于设计出更健壮、更可复用的代码结构。</li>
+<li>使得构建大型复杂应用更加得心应手。</li>
+</ul>
+</li>
+<li><strong>与 JavaScript 生态兼容:</strong> TS 完全兼容 JS，可以逐步引入现有 JS 项目，并能无缝使用庞大的 NPM 生态中的 JS 库（通过类型声明文件 <code>@types</code> 或库自带的类型）。</li>
+<li><strong>支持最新的 JavaScript 特性:</strong> TS 团队通常会较早地支持 ECMAScript 的新特性，并允许开发者将这些新特性编译到旧版本的 JS，兼顾了新语法的使用和向后兼容。</li>
+</ol>
+<p><strong>缺点（相对而言）:</strong></p>
+<ul>
+<li><strong>学习曲线:</strong> 需要学习额外的类型语法和概念。</li>
+<li><strong>编译步骤:</strong> 需要额外的编译环节。</li>
+<li><strong>代码量增加:</strong> 需要编写类型注解，代码会稍微冗长一些（但带来的好处通常远超这点）。</li>
+<li><strong>类型体操:</strong> 复杂的类型推导和定义有时会比较棘手（俗称“类型体操”）。</li>
+</ul>
+<p>总的来说，TypeScript 通过引入静态类型系统，极大地提升了 JavaScript 开发的健壮性、可维护性和开发效率，尤其适用于大型、复杂的项目和团队协作。</p>
+<p><strong>8.算法题：如何找到一个无序数组中第 K 大的数？</strong></p>
+<p><strong>基于快速排序思想 (快速选择算法 Quick Select)</strong></p>
+<ul>
+<li><p>思路:</p>
+<p>这是快速排序算法的一个变种。<strong>快速排序的核心是 partition(分区)</strong></p>
+<p>操作：选择一个基准值 (pivot)，将数组分区为两部分——小于 pivot 的元素和大于等于 pivot 的元素，并返回 pivot 的最终位置索引 p。</p>
+<ol>
+<li>在数组中随机选择一个 pivot。</li>
+<li>执行 <code>partition</code> 操作，将数组分为 <code>[小于 pivot 的元素]</code>, <code>pivot</code>, <code>[大于等于 pivot 的元素]</code> 三部分。得到 pivot 在排序后数组中的最终索引 <code>p</code>。</li>
+<li>我们想找的是第 K 大的元素，它在排序后数组中的索引应该是 <code>N - K</code>（假设数组长度为 N，索引从 0 开始）。</li>
+<li>比较 p和 N - K：<ul>
+<li>如果 <code>p == N - K</code>，那么 pivot 就是我们要找的第 K 大的数，直接返回 <code>array[p]</code>。</li>
+<li>如果 <code>p &lt; N - K</code>，说明第 K 大的数在 pivot 的<strong>右边</strong>（更大的那部分），我们需要在右子数组 <code>[p+1, end]</code> 中继续查找第 <code>K</code> 大的数（注意：相对 K 值不变，因为我们是从大往小找 K 个）。</li>
+<li>如果 <code>p &gt; N - K</code>，说明第 K 大的数在 pivot 的<strong>左边</strong>（较小的那部分），我们需要在左子数组 <code>[start, p-1]</code> 中继续查找第 <code>K</code> 大的数。</li>
+</ul>
+</li>
+<li>递归地在选定的子数组中重复步骤 1-4，直到找到目标索引。</li>
+</ol>
+</li>
+</ul>
+<p><strong>9.Vue 的依赖收集机制</strong></p>
+<p>Vue 的依赖收集是响应式系统的核心机制，它负责追踪组件依赖的数据变化并在数据变化时更新视图。我来解释这个过程：</p>
+<p><strong>基本原理</strong></p>
+<p>Vue 的响应式系统主要基于两个核心概念：</p>
+<ol>
+<li><strong>Observer(客观观察或旁观)</strong>：将普通 JavaScript 对象转换为响应式对象</li>
+<li><strong>Watcher(持续关注、监视或守护)</strong>：负责监听数据变化并执行更新函数</li>
+</ol>
+<p><strong>依赖收集过程</strong></p>
+<p>当一个组件渲染时，会读取数据属性，这时 Vue 就会进行依赖收集：</p>
+<ol>
+<li>数据初始化时通过 <code>Object.defineProperty</code>（Vue 2）或 <code>Proxy</code>（Vue 3）将数据转换为响应式对象</li>
+<li>每个响应式属性都有一个对应的 <strong>Dep</strong> 对象（依赖收集器）</li>
+<li>组件渲染时，创建一个 <strong>Watcher</strong> 实例</li>
+<li>在读取数据时，将当前的 Watcher 设置为”正在计算的 Watcher”</li>
+<li>数据被读取时，将当前 Watcher 添加到该数据的 Dep 收集器中</li>
+<li>当数据变化时，Dep 通知所有收集的 Watcher 进行更新</li>
+</ol>
+<p>假设我们有一个简单的 Vue 组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;Hello Vue&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>依赖收集过程如下：</p>
+<ol>
+<li>Vue 创建组件实例时，将 data 中的 message 属性转换为响应式对象：<ul>
+<li>对 <code>message</code> 使用 <code>Object.defineProperty</code>（Vue 2）或 <code>Proxy</code>（Vue 3）</li>
+<li>创建一个 Dep 实例与 <code>message</code> 关联</li>
+</ul>
+</li>
+<li>当组件渲染模板时：<ul>
+<li>创建一个渲染 Watcher</li>
+<li>执行渲染函数，这会读取 <code>message</code> 的值</li>
+<li>在读取 <code>message</code> 时，当前的渲染 Watcher 被设置为”正在计算的 Watcher”</li>
+<li><code>message</code> 的 getter 方法被调用，它会执行 <code>dep.depend()</code>，将当前 Watcher 添加到 <code>message</code> 的依赖列表</li>
+</ul>
+</li>
+<li>当 message 变化时：<ul>
+<li>触发 <code>message</code> 的 setter 方法</li>
+<li>setter 调用 <code>dep.notify()</code>，通知所有依赖此数据的 Watcher</li>
+<li>渲染 Watcher 收到通知，重新执行渲染函数，更新 DOM</li>
+</ul>
+</li>
+</ol>
+<p><strong>写一道关于事件循环（Event Loop）的题目，并解释输出结果和原因。</strong></p>
+<p><strong>我:</strong> 好的，这是一道考察宏任务（Macrotask）和微任务（Microtask）执行顺序的典型题目：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>); <span class="comment">// 5</span></span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>); <span class="comment">// 3</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>); <span class="comment">// 4</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请问以上代码的输出顺序是什么？</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">script start</span><br><span class="line">script end</span><br><span class="line">promise1</span><br><span class="line">promise2</span><br><span class="line">setTimeout</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释原因:</strong></p>
+<ol>
+<li><strong>同步代码执行:</strong> 首先执行全局上下文中的同步代码。<ul>
+<li><code>console.log(&#39;script start&#39;);</code> 被执行，输出 ‘script start’。</li>
+<li>遇到 <code>setTimeout</code>，它是一个 Web API（宏任务源）。它的回调函数会被注册到 Web API 中，并在指定时间（这里是0ms后，但实际上会有一个最小延迟，且必须等待主线程空闲）后放入<strong>宏任务队列</strong>（Task Queue）。</li>
+<li>遇到 <code>Promise.resolve().then(...)</code>。<code>Promise.resolve()</code> 会立即创建一个状态为 resolved 的 Promise。<code>.then()</code> 中的回调函数会被注册到<strong>微任务队列</strong>（Microtask Queue）。接着，第二个 <code>.then()</code> 也会被注册到微任务队列，排在第一个后面。</li>
+<li><code>console.log(&#39;script end&#39;);</code> 被执行，输出 ‘script end’。</li>
+</ul>
+</li>
+<li><strong>同步代码执行完毕，检查微任务队列:</strong> 此时，全局同步代码执行完成，调用栈（Call Stack）变空。根据事件循环机制，在进入下一个宏任务之前，必须清空当前的微任务队列。<ul>
+<li>从微任务队列中取出第一个任务（<code>promise1</code> 的回调），推入调用栈执行，输出 ‘promise1’。</li>
+<li>微任务队列中还有第二个任务（<code>promise2</code> 的回调），继续取出，推入调用栈执行，输出 ‘promise2’。</li>
+<li>此时微任务队列已空。</li>
+</ul>
+</li>
+<li><strong>执行宏任务:</strong> 微任务队列清空后，事件循环会检查宏任务队列。<ul>
+<li>发现 <code>setTimeout</code> 的回调函数已经在宏任务队列中。</li>
+<li>取出 <code>setTimeout</code> 的回调函数，推入调用栈执行，输出 ‘setTimeout’。</li>
+</ul>
+</li>
+<li><strong>结束:</strong> 调用栈再次变空，微任务队列为空，宏任务队列也为空（在此例中）。事件循环继续等待新的任务。</li>
+</ol>
+<p><strong>总结:</strong> 事件循环的核心在于区分宏任务和微任务。同步代码最先执行，然后执行所有当前轮次的微任务，最后才从宏任务队列中取出一个宏任务执行。这个过程不断重复。</p>
+<p><strong>回调地狱（Callback Hell）有什么常见的解法？</strong></p>
+<p><strong>我:</strong> 回调地狱（Callback Hell），也叫“毁灭金字塔（Pyramid of Doom）”，通常发生在需要处理多个相互依赖的异步操作时，后一个操作依赖于前一个操作的结果，导致回调函数层层嵌套，代码形态像一个向右倾斜的金字塔。这使得代码难以阅读、理解、调试和维护。</p>
+<p>常见的解法主要有以下几种：</p>
+<ol>
+<li><p><strong>Promises (ES6 标准，推荐):</strong></p>
+<ul>
+<li><p><strong>核心思想:</strong> Promise 对象代表一个异步操作的最终完成（或失败）及其结果值。它允许你将回调函数（通过 <code>.then()</code> 和 <code>.catch()</code>）附加到异步操作上，而不是直接将回调传递给异步函数。</p>
+</li>
+<li><p><strong>链式调用 (<code>.then()</code>):</strong> <code>then</code> 方法返回一个新的 Promise，可以继续链接下一个 <code>.then()</code>，处理下一个异步操作。这使得原本嵌套的结构变成了扁平的、线性的链式结构。</p>
+</li>
+<li><p><strong>错误处理 (<code>.catch()</code>):</strong> 提供统一的错误捕获机制。链中任何地方发生的错误（无论是同步抛出还是 Promise 被 reject）都可以被链末尾的 <code>.catch()</code> 捕获。</p>
+</li>
+<li><p><strong>并行处理 (<code>Promise.all</code>, <code>Promise.race</code>, <code>Promise.allSettled</code>):</strong> 提供了处理多个并发异步操作的工具方法。</p>
+</li>
+<li><p>示例:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">asyncOperation1</span>()</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">result1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">asyncOperation2</span>(result1); <span class="comment">// 返回一个新的 Promise</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">result2</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">asyncOperation3</span>(result2);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">result3</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Final result:&#x27;</span>, result3);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;An error occurred:&#x27;</span>, error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>Async&#x2F;Await (ES2017 标准，基于 Promises，强烈推荐):</strong> * <strong>核心思想:</strong> <code>async/await</code> 是建立在 Promises 之上的语法糖。它允许你用看起来像同步代码的方式来编写异步代码。 * <strong><code>async</code> 函数:</strong> 函数声明前加上 <code>async</code> 关键字，表明该函数内部可能包含异步操作，并且该函数总是隐式地返回一个 Promise。 * <strong><code>await</code> 操作符:</strong> 只能在 <code>async</code> 函数内部使用。它会暂停 <code>async</code> 函数的执行，等待其后的 Promise 完成（resolve 或 reject）。如果 Promise resolve，<code>await</code> 会返回 resolve 的值；如果 Promise reject，<code>await</code> 会抛出错误（就像同步代码中的 <code>throw</code>）。 * <strong>错误处理 (<code>try...catch</code>):</strong> 可以使用标准的 <code>try...catch</code> 语句来捕获 <code>await</code> 操作可能抛出的错误，使得异步错误处理和同步错误处理方式统一。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">processAsyncTask</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 模拟异步操作</span></span><br><span class="line">    <span class="keyword">const</span> result1 = <span class="keyword">await</span> <span class="title function_">asyncOperation1</span>(); <span class="comment">// 假设这是一个异步操作</span></span><br><span class="line">    <span class="keyword">const</span> result2 = <span class="keyword">await</span> <span class="title function_">asyncOperation2</span>(result1); <span class="comment">// 假设这是一个异步操作，接受一个参数</span></span><br><span class="line">    <span class="keyword">const</span> result3 = <span class="keyword">await</span> <span class="title function_">asyncOperation3</span>(result2); <span class="comment">// 假设这是一个异步操作，接受两个参数</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Final result:&#x27;</span>, result3); <span class="comment">// 输出最终结果</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;An error occurred:&#x27;</span>, error); <span class="comment">// 输出错误信息</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">processAsyncTask</span>(); <span class="comment">// 输出最终结果</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>总结:</strong> 目前解决回调地狱最主流、最推荐的方法是使用 <strong>Promises</strong>，尤其是结合 <strong>Async&#x2F;Await</strong> 语法，它们能极大地提升异步代码的可读性、可维护性和健壮性。</p>
+<p>React Fiber 是 React 16 引入的一种新的协调（reconciliation）引擎，它的核心目标是提高 React 应用的性能，尤其是在处理复杂的 UI 更新时。Fiber 的一个重要特性是它的链表结构，这种结构使得 React 能够更好地管理和调度渲染任务。</p>
+<h3 id="React-Fiber-的链表结构"><a href="#React-Fiber-的链表结构" class="headerlink" title="React Fiber 的链表结构"></a>React Fiber 的链表结构</h3><p>在 React Fiber 中，UI 组件树被表示为一个 Fiber 树，每个组件对应一个 Fiber 节点。这些 Fiber 节点通过链表的形式连接在一起，形成了一种树形结构，但与传统的 DOM 树不同，Fiber 树更像是一个带有指针的链表结构。</p>
+<p>具体来说，Fiber 节点之间通过以下几种指针相互连接：</p>
+<ol>
+<li><strong>child 指针</strong>：指向当前节点的第一个子节点。</li>
+<li><strong>sibling 指针</strong>：指向当前节点的下一个兄弟节点。</li>
+<li><strong>return 指针</strong>：指向当前节点的父节点（在 Fiber 中称为“return”，而不是“parent”，因为它表示任务返回的方向）。</li>
+</ol>
+<p>这种链表结构的设计有以下几个优势：</p>
+<ul>
+<li><strong>增量渲染</strong>：React Fiber 可以将渲染工作拆分成多个小任务，逐个处理 Fiber 节点。这样可以在浏览器空闲时执行任务，避免长时间阻塞主线程，从而提升用户体验（例如避免卡顿）。</li>
+<li><strong>优先级调度</strong>：通过链表结构，React 可以轻松地暂停和恢复渲染任务，优先处理高优先级的更新（比如用户输入），再处理低优先级的任务。</li>
+<li><strong>错误处理和副作用管理</strong>：链表结构使得 React 能够更好地追踪和管理组件的生命周期和副作用（比如 useEffect）。</li>
+</ul>
+<h3 id="Fiber-树的工作原理"><a href="#Fiber-树的工作原理" class="headerlink" title="Fiber 树的工作原理"></a>Fiber 树的工作原理</h3><p>React 在运行时会维护两棵 Fiber 树：</p>
+<ol>
+<li><strong>当前树（current tree）</strong>：表示当前屏幕上显示的内容。</li>
+<li><strong>工作树（work-in-progress tree）</strong>：表示正在进行更新的内容。</li>
+</ol>
+<p>当有更新发生时，React 会基于当前树构建一个新的工作树，计算出需要更新的节点（diff 过程），然后将更新应用到 DOM 上，最后将工作树变成新的当前树。这种双树结构结合链表的设计，使得 React 能够高效地处理更新。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>React Fiber 的链表结构是其实现增量渲染和优先级调度的基础。通过 child、sibling 和 return 指针，Fiber 节点形成了一个灵活且易于遍历的树形结构。这种设计让 React 能够在复杂的 UI 更新中保持高效和响应性。</p>
+
+  </div>
+  
+    <div class="tags">
+    <span><i class="fa fa-tags"></i> Tags</span>
+      
+        <ul class="post-tag-list" itemprop="keywords"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/" rel="tag">八股文</a></li></ul>
+      
+    </div>
+  
+
+</article>
+
+<!-- Comments -->
+
+<!-- End Comments --></section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2025 <a href="/">DayBreak</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  
+<script src="/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+
+  
+<script src="/js/helper.js"></script>
+
+  
+<script src="/js/_third-party/gitment.js"></script>
+
+</body>
+</html>
