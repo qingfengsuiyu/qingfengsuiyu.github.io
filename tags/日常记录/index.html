@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>tag: 日常记录 | DayBreak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="坚持与从俗不同信仰的困难">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DayBreak">
+<meta property="og:url" content="https://qingfengsuiyu.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="DayBreak">
+<meta property="og:description" content="坚持与从俗不同信仰的困难">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Xiaoyi Hao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="DayBreak" type="application/atom+xml">
+  
+  
+  
+  
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0.css">
+
+  
+<link rel="stylesheet" href="/lib/fancybox/dist/jquery.fancybox.min.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix">
+	<a id="logo" href="/" title="DayBreak">DayBreak</a>
+	
+	<nav id="nav-menu" class="clearfix">
+		<form id="search" method="post" action="./" role="search">
+			<input id="search-input" type="text" name="s" class="inputbox" value="Search" onfocus="if (value =='Search'){value =''}" onblur="if (value ==''){value='Search'}">
+		</form>
+		<ul>
+      
+				
+        <li><a class="main-nav-link" href="/">Home</a></li>
+      
+				
+        <li><a class="main-nav-link" href="/archives">Archives</a></li>
+      
+		</ul>
+	</nav>
+</header>
+    <section id="main" class="clearfix">
+  <article class="post-detail">
+    <h1 class="post-title"><a href="/">微信小程序使用记录</a></h1>
+    <ul class="post-meta">
+  <li><i class="fa fa-user"></i> Author Xiaoyi Hao</li>
+  <li><i class="fa fa-calendar"></i> Date Apr 22</li>
+  <li><i class="fa fa-folder"></i> Categories
+  
+    no_categories
+  
+  </li>
+</ul>
+    <div class="post-content">
+      <h5 id="微信小程序学习记录"><a href="#微信小程序学习记录" class="headerlink" title="微信小程序学习记录:"></a><strong>微信小程序学习记录:</strong></h5><p> (文中link中带有token,打开会失效)</p>
+<p><strong>0.开发小程序需要申请小程序id,<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/wxamp">Link</a></strong></p>
+<p>获取开发者ID:开发与服务&#x2F;开发管理&#x2F;</p>
+<p><strong>1.申请百度地图api,申请应用类型为微信小程序<a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/apiconsole/key">Link</a></strong></p>
+<p>1.1 下载百度地图微信小程序JavaScript API的js文件<a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/index.php?title=wxjsapi/wxjs-download">bmap-wx.min.js</a>并放到utils,并导入到项目</p>
+<p><strong>2.在微信小程序后端配置对应域名:<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1362711537&lang=zh_CN">Link</a></strong></p>
+<p>修改:管理&#x2F;开发管理&#x2F;服务器域名下添加:request合法域名: <a target="_blank" rel="noopener" href="https://api.map.baidu.com/">https://api.map.baidu.com</a></p>
+<p>3.首先需要在小程序中调用:</p>
+<p>创建第一个微信小程序步骤(新手-带模板):</p>
+<ul>
+<li>点击开发者工具左上角的 <code>+</code> 号或“新建项目”。</li>
+<li>填写 <strong>项目名称</strong> (例如: <code>HelloWorldDemo</code>)。</li>
+<li>选择一个<strong>空的</strong>本地<strong>目录</strong>用于存放项目文件。</li>
+<li>填入你的 <strong>AppID</strong> (或使用<strong>测试号</strong>)。</li>
+<li>开发模式选 <strong>小程序</strong>。</li>
+<li>后端服务选 <strong>不使用云服务</strong>。</li>
+<li><strong>关键步骤：</strong> 在 <strong>“模板选择”</strong> 部分，<strong>务必选择一个模板</strong>！通常会有一个叫做 <strong>“JavaScript 基础模板”</strong> 、 <strong>“建立快速启动模板”</strong> 或类似的选项。<strong>不要选择“建立空白项目”</strong>。</li>
+<li>点击 <strong>“创建”</strong>。</li>
+</ul>
+<p>index.js代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 引入百度地图微信小程序JSAPI模块</span></span><br><span class="line"><span class="keyword">var</span> bmap = <span class="built_in">require</span>(<span class="string">&#x27;../../utils/bmap-wx.min&#x27;</span>); <span class="comment">// 导入百度为微信小程序提供的jsApi文件</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;loading success&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="comment">// 盒子</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">bmapAk</span>: <span class="string">&#x27;personalBaiduMapKey&#x27;</span>, <span class="comment">// 在这里替换成你申请到的AK</span></span><br><span class="line">    <span class="attr">resultMessage</span>: <span class="string">&#x27;等待测试...&#x27;</span> <span class="comment">// 用于显示结果信息</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 点击按钮时触发的函数</span></span><br><span class="line">  <span class="attr">testBaiduAPI</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="variable language_">this</span>; <span class="comment">// 保存 Page 对象的引用，方便在回调函数中使用 setData</span></span><br><span class="line">    <span class="comment">// 检查 AK 是否已填写</span></span><br><span class="line">    <span class="keyword">if</span> (!that.<span class="property">data</span>.<span class="property">bmapAk</span> || that.<span class="property">data</span>.<span class="property">bmapAk</span> === <span class="string">&#x27;请替换为你的百度地图AK&#x27;</span>) &#123;</span><br><span class="line">      that.<span class="title function_">setData</span>(&#123;</span><br><span class="line">        <span class="attr">resultMessage</span>: <span class="string">&#x27;错误：请先在 index.js 文件中填写你的百度地图AK！&#x27;</span></span><br><span class="line">      &#125;);</span><br><span class="line">      wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;请先填写AK&#x27;</span>,</span><br><span class="line">        <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">        <span class="attr">duration</span>: <span class="number">2000</span></span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span>; <span class="comment">// 停止执行</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 显示“正在测试”状态</span></span><br><span class="line">    that.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">resultMessage</span>: <span class="string">&#x27;正在调用API...&#x27;</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 新建百度地图对象</span></span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">BMap</span> = <span class="keyword">new</span> bmap.<span class="title class_">BMapWX</span>(&#123;</span><br><span class="line">      <span class="attr">ak</span>: that.<span class="property">data</span>.<span class="property">bmapAk</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 定义成功和失败的回调函数</span></span><br><span class="line">    <span class="keyword">var</span> fail = <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;百度地图API调用失败:&#x27;</span>, data); <span class="comment">// 在控制台打印详细错误</span></span><br><span class="line">      <span class="comment">// 更新页面显示失败信息</span></span><br><span class="line">      that.<span class="title function_">setData</span>(&#123;</span><br><span class="line">        <span class="comment">// 这里可以根据 data 的内容给出更具体的错误提示，简化起见只显示通用失败信息</span></span><br><span class="line">        <span class="attr">resultMessage</span>: <span class="string">&#x27;API调用失败！请检查AK、网络、或控制台错误信息。&#x27;</span> + (data &amp;&amp; data.<span class="property">errMsg</span> ? <span class="string">&#x27; 错误: &#x27;</span> + data.<span class="property">errMsg</span> : <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> success = <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;百度地图API调用成功:&#x27;</span>, data); <span class="comment">// 在控制台打印成功信息</span></span><br><span class="line">      <span class="comment">// 尝试从返回结果中提取地址信息</span></span><br><span class="line">      <span class="keyword">var</span> address = <span class="string">&#x27;未知地址&#x27;</span>;</span><br><span class="line">      <span class="keyword">if</span> (data &amp;&amp; data.<span class="property">wxMarkerData</span> &amp;&amp; data.<span class="property">wxMarkerData</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">         <span class="comment">// regeocoding API 返回的是 wxMarkerData 数组</span></span><br><span class="line">        address = data.<span class="property">wxMarkerData</span>[<span class="number">0</span>].<span class="property">address</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data &amp;&amp; data.<span class="property">originalData</span> &amp;&amp; data.<span class="property">originalData</span>.<span class="property">result</span>) &#123;</span><br><span class="line">        <span class="comment">// 有些API结果在 originalData.result 里</span></span><br><span class="line">         address = data.<span class="property">originalData</span>.<span class="property">result</span>.<span class="property">formatted_address</span> || <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data.<span class="property">originalData</span>.<span class="property">result</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 更新页面显示成功信息和地址</span></span><br><span class="line">      that.<span class="title function_">setData</span>(&#123;</span><br><span class="line">        <span class="attr">resultMessage</span>: <span class="string">&#x27;API调用成功！获取到的地址信息 (部分): &#x27;</span> + address</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 发起regeocoding检索请求 (逆地址解析)</span></span><br><span class="line">    <span class="comment">// 我们使用一个固定的坐标点进行测试，例如北京天安门广场附近</span></span><br><span class="line">    <span class="title class_">BMap</span>.<span class="title function_">regeocoding</span>(&#123;</span><br><span class="line">      <span class="attr">location</span>: <span class="string">&#x27;39.915,116.404&#x27;</span>, <span class="comment">// 纬度,经度 (注意是字符串格式)</span></span><br><span class="line">      <span class="attr">fail</span>: fail,      <span class="comment">// 失败回调</span></span><br><span class="line">      <span class="attr">success</span>: success,  <span class="comment">// 成功回调</span></span><br><span class="line">      <span class="comment">// iconPath: &#x27;../../img/marker_red.png&#x27;, // 如果需要在地图上显示标记，可以指定图标路径</span></span><br><span class="line">      <span class="comment">// iconTapPath: &#x27;../../img/marker_red.png&#x27; // 同上</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>index.wxml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 绑定方法: testBaiduAPI--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;testBaiduAPI&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; left: 0rpx; top: 12rpx&quot;</span>&gt;</span>测试百度地图API<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;result-area&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span>&gt;</span>测试结果：<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;resultMessage&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.wxss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/index/index.wxss */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">40</span>rpx;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">40</span>rpx;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.result-area</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">20</span>rpx;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20</span>rpx;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">90%</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100</span>rpx;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">28</span>rpx; <span class="comment">/* 调整字体大小 */</span></span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">word-wrap</span>: break-word; <span class="comment">/* 长内容换行 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.result-area</span> <span class="selector-tag">text</span><span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>小程序点击号码进行拨打电话功能:</strong></p>
+<p>功能评估:利用wx.showActionSheet弹出窗口:iOS系统直接调用wx.makePhoneCall就可以了，安卓系统就须手动添加弹窗了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="comment">// 盒子</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="comment">// 定义状态</span></span><br><span class="line">    <span class="attr">phoneNumber</span>: <span class="string">&#x27;1234567890&#x27;</span> <span class="comment">// 默认电话号码</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 点击按钮时触发的函数</span></span><br><span class="line">  <span class="attr">callPhone</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> phoneNumber = <span class="string">&#x27;1234567890&#x27;</span>; <span class="comment">// 替换为你需要拨打的电话号码</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取系统信息</span></span><br><span class="line">    wx.<span class="title function_">getSystemInfo</span>(&#123;</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> system = res.<span class="property">system</span>.<span class="title function_">toLowerCase</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断是iOS还是Android系统</span></span><br><span class="line">        <span class="keyword">if</span> (system.<span class="title function_">indexOf</span>(<span class="string">&#x27;ios&#x27;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">          <span class="comment">// iOS系统直接拨打</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">directCall</span>(phoneNumber);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// Android系统显示ActionSheet</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">showCallOptions</span>(phoneNumber);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">fail</span>: <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取系统信息失败&#x27;</span>, err);</span><br><span class="line">        <span class="comment">// 获取失败时，默认使用ActionSheet方式</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">showCallOptions</span>(phoneNumber);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 直接拨打电话（iOS）</span></span><br><span class="line">  <span class="attr">directCall</span>: <span class="keyword">function</span>(<span class="params">phoneNumber</span>) &#123;</span><br><span class="line">    wx.<span class="title function_">makePhoneCall</span>(&#123;</span><br><span class="line">      <span class="attr">phoneNumber</span>: phoneNumber,</span><br><span class="line">      <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;拨打电话成功！&#x27;</span>);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">fail</span>: <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;拨打电话失败：&#x27;</span>, err);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 显示ActionSheet（Android）</span></span><br><span class="line">  <span class="attr">showCallOptions</span>: <span class="keyword">function</span>(<span class="params">phoneNumber</span>) &#123;</span><br><span class="line">    wx.<span class="title function_">showActionSheet</span>(&#123;</span><br><span class="line">      <span class="attr">itemList</span>: [<span class="string">&#x27;拨打电话 &#x27;</span> + phoneNumber],</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (res.<span class="property">tapIndex</span> === <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="comment">// 用户点击了&quot;拨打电话&quot;选项</span></span><br><span class="line">          wx.<span class="title function_">makePhoneCall</span>(&#123;</span><br><span class="line">            <span class="attr">phoneNumber</span>: phoneNumber,</span><br><span class="line">            <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;拨打电话成功！&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">fail</span>: <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;拨打电话失败：&#x27;</span>, err);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">fail</span>: <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;显示ActionSheet失败：&#x27;</span>, err);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue3项目开发模板"><a href="#Vue3项目开发模板" class="headerlink" title="Vue3项目开发模板"></a><strong>Vue3项目开发模板</strong></h4><p>这个项目是一个基于 Vite 和 React 的前端工程化项目，包含了现代化的工具链和工程化配置。以下是对项目结构的介绍以及如何入手和掌握工程化的建议：</p>
+<h3 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h3><ol>
+<li><strong>根目录文件</strong><ul>
+<li><strong>[Dockerfile](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong>: 用于容器化部署的配置文件。</li>
+<li><strong><code>eslint.config.js</code></strong>: 配置 ESLint，用于代码质量检查。</li>
+<li><strong>[Jenkinsfile](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong>: 用于 CI&#x2F;CD 的 Jenkins 配置文件。</li>
+<li><strong><code>package.json</code></strong>: 项目依赖和脚本的配置文件。</li>
+<li><strong><code>vite.config.js</code></strong>: Vite 的配置文件，用于开发和构建的工具链配置。</li>
+<li><strong><code>tailwind.config.js</code></strong>: Tailwind CSS 的配置文件。</li>
+<li><strong><code>index.html</code></strong>: 项目的入口 HTML 文件。</li>
+</ul>
+</li>
+<li><strong>[src](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html) 文件夹</strong><ul>
+<li><strong><code>main.jsx</code></strong>: React 应用的入口文件。</li>
+<li><strong><code>App.jsx</code></strong>: React 应用的主组件。</li>
+<li><strong><code>apis</code></strong>: 存放 API 请求相关的模块。</li>
+<li><strong><code>assets</code></strong>: 存放静态资源，如样式文件和图片。</li>
+<li><strong><code>components</code></strong>: 存放可复用的 React 组件。</li>
+<li><strong><code>hooks</code></strong>: 自定义 React Hooks。</li>
+<li><strong><code>plugins</code></strong>: 存放项目中使用的插件配置。</li>
+<li><strong><code>router</code></strong>: 路由配置。</li>
+<li><strong><code>store</code></strong>: Redux 状态管理相关的代码。</li>
+<li><strong><code>utils</code></strong>: 工具函数和配置。</li>
+<li><strong><code>views</code></strong>: 页面级组件。</li>
+</ul>
+</li>
+<li><strong>其他文件夹</strong><ul>
+<li><strong>[docs](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong>: 项目文档。</li>
+<li><strong>[k8s](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong>: Kubernetes 配置文件。(用于部署和管理应用的运行环境)</li>
+<li><strong>public</strong>: 公共资源文件夹。</li>
+</ul>
+</li>
+</ol>
+<h4 id="详细的介绍"><a href="#详细的介绍" class="headerlink" title="详细的介绍:"></a><strong>详细的介绍:</strong></h4><h4 id="根目录文件"><a href="#根目录文件" class="headerlink" title="根目录文件"></a><strong>根目录文件</strong></h4><ol>
+<li><strong>[Dockerfile](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong><ul>
+<li>用于定义项目的容器化部署环境。</li>
+<li>包含基础镜像、依赖安装、构建命令等配置。</li>
+<li>通过 Docker，可以将项目打包成镜像，方便在不同环境中运行。</li>
+</ul>
+</li>
+<li><strong><code>eslint.config.js</code></strong><ul>
+<li>配置 ESLint，用于代码质量检查。</li>
+<li>定义了代码风格规则（如缩进、引号、分号等），确保团队代码风格一致。</li>
+<li>可以结合 IDE 插件实现实时代码检查。</li>
+</ul>
+</li>
+<li><strong><code>index.html</code></strong><ul>
+<li>项目的入口 HTML 文件。</li>
+<li>Vite 会以此文件为模板，注入构建后的 JavaScript 和 CSS 文件。</li>
+<li>通常包含 <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>，作为 React 应用的挂载点。</li>
+</ul>
+</li>
+<li><strong>[Jenkinsfile](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html)</strong><ul>
+<li>用于 CI&#x2F;CD（持续集成&#x2F;持续交付）的 Jenkins 配置文件。</li>
+<li>定义了构建、测试、部署的流水线流程。</li>
+<li>通过 Jenkins，可以实现自动化的代码集成和部署。</li>
+</ul>
+</li>
+<li><strong><code>package.json</code></strong><ul>
+<li>项目的核心配置文件，包含以下内容：<ul>
+<li>项目名称、版本、描述等元信息。</li>
+<li>依赖项（dependencies 和 devDependencies）。</li>
+<li>脚本命令（如 <code>npm run dev</code>、<code>npm run build</code>）。</li>
+</ul>
+</li>
+<li>是 Node.js 项目管理的基础。</li>
+</ul>
+</li>
+<li><strong><code>vite.config.js</code></strong><ul>
+<li>Vite 的配置文件。</li>
+<li>定义了开发服务器、构建选项、插件等配置。</li>
+<li>可以通过插件扩展功能，例如支持 Tailwind CSS、Ant Design 等。</li>
+</ul>
+</li>
+<li><strong><code>tailwind.config.js</code></strong><ul>
+<li>Tailwind CSS 的配置文件。</li>
+<li>用于自定义主题、颜色、字体等样式。</li>
+<li>可以扩展 Tailwind 的默认配置，满足项目需求。</li>
+</ul>
+</li>
+<li><strong><code>README.md</code></strong><ul>
+<li>项目的说明文档。</li>
+<li>通常包含项目简介、安装步骤、使用方法等信息。</li>
+<li>是团队成员和外部开发者了解项目的第一入口。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="src-vscode-file-vscode-app-Applications-Visual-Studio-Code-app-Contents-Resources-app-out-vs-code-electron-sandbox-workbench-workbench-html-文件夹"><a href="#src-vscode-file-vscode-app-Applications-Visual-Studio-Code-app-Contents-Resources-app-out-vs-code-electron-sandbox-workbench-workbench-html-文件夹" class="headerlink" title="[src](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html) 文件夹"></a><strong>[src](vscode-file:&#x2F;&#x2F;vscode-app&#x2F;Applications&#x2F;Visual Studio Code.app&#x2F;Contents&#x2F;Resources&#x2F;app&#x2F;out&#x2F;vs&#x2F;code&#x2F;electron-sandbox&#x2F;workbench&#x2F;workbench.html) 文件夹</strong></h4><p>这是项目的核心代码目录，包含了应用的主要逻辑和功能模块。</p>
+<ol>
+<li><p><strong><code>main.jsx</code></strong></p>
+<ul>
+<li>React 应用的入口文件。</li>
+<li>通过 <code>ReactDOM.createRoot</code> 将 React 组件挂载到 HTML 中的根节点。</li>
+<li>通常在这里引入全局样式、路由、状态管理等。</li>
+</ul>
+</li>
+<li><p><strong><code>App.jsx</code></strong></p>
+<ul>
+<li>React 应用的主组件。</li>
+<li>是所有页面和组件的容器，通常包含路由配置。</li>
+</ul>
+</li>
+<li><p><strong><code>apis</code></strong></p>
+<ul>
+<li>存放 API 请求相关的模块。</li>
+<li><strong><code>common.js</code></strong>: 通用的 API 请求封装，例如 GET、POST 方法。</li>
+<li><strong><code>module.js</code></strong>: 按功能模块划分的 API 请求，例如用户管理、商品管理等。</li>
+</ul>
+</li>
+<li><p><strong><code>assets</code></strong></p>
+<ul>
+<li><p>存放静态资源，如样式文件、图片等。</p>
+</li>
+<li><p><code>styles/</code></p>
+<p>: 样式文件目录。</p>
+<ul>
+<li><strong><code>index.scss</code></strong>: 全局样式文件。</li>
+<li><strong><code>tailwind.scss</code></strong>: Tailwind CSS 的入口文件。</li>
+<li><strong><code>variables.scss.js</code></strong>: 样式变量文件，通常用于定义颜色、字体等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><code>components</code></strong></p>
+<ul>
+<li>存放可复用的 React 组件。</li>
+<li><strong><code>StaticAntdFunctions.jsx</code></strong>: 封装的 Ant Design 静态功能组件。</li>
+<li><strong><code>PageSpin/</code></strong>: 页面加载时的全局加载动画组件。</li>
+</ul>
+</li>
+<li><p><strong><code>hooks</code></strong></p>
+<ul>
+<li>存放自定义 React Hooks。</li>
+<li>例如封装的状态管理、数据请求逻辑等。</li>
+</ul>
+</li>
+<li><p><strong><code>plugins</code></strong></p>
+<ul>
+<li>存放项目中使用的插件配置。</li>
+<li><strong><code>antd.jsx</code></strong>: Ant Design 的插件配置。</li>
+<li><strong><code>dayjs.js</code></strong>: 日期处理库 Day.js 的封装。</li>
+</ul>
+</li>
+<li><p><strong><code>router</code></strong></p>
+<ul>
+<li>路由配置目录。</li>
+<li><strong><code>AuthElement.jsx</code></strong>: 路由守卫组件，用于权限控制。</li>
+<li><strong><code>index.jsx</code></strong>: 路由表配置，定义了页面路径和对应的组件。</li>
+</ul>
+</li>
+<li><p><strong><code>store</code></strong></p>
+<ul>
+<li><p>Redux 状态管理目录。</p>
+</li>
+<li><p><strong><code>index.js</code></strong>: Redux Store 的入口文件。</p>
+</li>
+<li><p><code>slices/</code></p>
+<p>: 按功能模块划分的状态切片。</p>
+<ul>
+<li><strong><code>counterSlice.js</code></strong>: 示例状态切片，包含计数器的状态和操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><code>utils</code></strong></p>
+<ul>
+<li>工具函数和配置目录。</li>
+<li><strong><code>config.js</code></strong>: 项目配置文件，例如 API 地址、环境变量等。</li>
+<li><strong><code>http.js</code></strong>: HTTP 请求封装，例如 Axios 实例。</li>
+<li><strong><code>index.js</code></strong>: 通用工具函数。</li>
+</ul>
+</li>
+<li><p><strong><code>views</code></strong></p>
+<ul>
+<li>页面级组件目录。</li>
+<li><code>home/</code>: 首页组件。</li>
+<li><strong><code>index.jsx</code></strong>: 首页的具体实现。</li>
+</ul>
+</li>
+</ol>
+<p>.env.development 存放后端地址(开发)</p>
+<p>.env.production 存放后端地址(生产)</p>
+
+    </div>
+  </article>
+
+
+</section>
+    <footer id="footer" role="contentinfo">
+    <div>&copy; 2025 <a href="/">DayBreak</a>.
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Designed by <a href="http://rainylog.com" target="_blank">Rainy.</a>
+	</div>
+</footer><!-- end #footer -->
+
+  </div>
+  
+<script src="/lib/fancybox/dist/jquery.fancybox.min.js"></script>
+
+
+  
+<script src="/js/helper.js"></script>
+
+  
+<script src="/js/_third-party/gitment.js"></script>
+
+</body>
+</html>
